@@ -12,4 +12,5 @@ phases:
       - npx @11ty/eleventy
 artifacts:
   files:
-    - '_site/*'
+    - '**/*'
+  base-directory: '_site'
