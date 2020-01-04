@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% capture css %}
+    {% include main.css %}
+  {% endcapture %}
+  <style>
+    {{ css | mincss | safe }}
+  </style>
+  <title>Simonsier.no</title>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="menu">
+      <ul class="menu__list">
+        <li><a href="">en link</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main-container">
+    <h1>Simon sier...</h1>
+    <section>
+      <p> Her kommer innhold... </p>
+    </section>
+  </main>
+</body>
+
+</html>
