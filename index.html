@@ -16,9 +16,13 @@
 
 <body>
   <header class="header">
+    <h1 class="header__title">Simon sier...</h1>
+    <span class="menu__toggle">Meny</span>
     <nav class="menu">
       <ul class="menu__list">
-        <li><a href="">en link</a></li>
+        <li><a href="" class="menu__link">Om meg</a></li>
+        <li><a href="" class="menu__link">Blogg</a></li>
+        <li><a href="" class="menu__link">Kontakt</a></li>
       </ul>
     </nav>
   </header>
@@ -28,6 +32,12 @@
       <p> Her kommer innhold... </p>
     </section>
   </main>
+  <script>
+    const menuToggle = document.querySelector('.menu__toggle');
+    const menu = document.querySelector('.menu');
+
+    menuToggle.addEventListener('click', () => menu.classList.toggle('menu--open'));
+  </script>
 </body>
 
 </html>
