@@ -5,18 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  {% capture css %}
-    {% include main.css %}
-  {% endcapture %}
+    {% set css %}
+      {% include "main.css" %}
+    {% endset %}
   <style>
-    {{ css | mincss | safe }}
+    {{ css | cssmin | safe }}
   </style>
   <title>Simonsier.no</title>
 </head>
 
 <body>
   <header class="header">
-    <h1 class="header__title">Simon sier...</h1>
+    <h1 class="header__title"><a href="/" >Simon sier... </a></h1>
+    <section>
+      <ul>
+        siste poster...
+      </ul>
+    </section>
     <span class="menu__toggle">Meny</span>
     <nav class="menu">
       <ul class="menu__list">
@@ -27,10 +32,7 @@
     </nav>
   </header>
   <main class="main-container">
-    <h1>Simon sier...</h1>
-    <section>
-      <p> Her kommer innhold... </p>
-    </section>
+    {{ content | safe }}
   </main>
   <script>
     const menuToggle = document.querySelector('.menu__toggle');

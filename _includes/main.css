@@ -21,9 +21,11 @@ body, html {
   align-items: center;
 }
 
-.header__title {
+.header__title a {
   font-size: 24px;
   margin-left: 20px;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .menu {
