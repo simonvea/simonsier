@@ -1,0 +1,25 @@
+---
+layout: base-layout.njk
+pagination:
+  data: collections.post
+  size: 10
+  reverse: true
+  alias: posts
+eleventyNavigation:
+  key: Arkiv
+title: Arkiv
+---
+<h1 class="page__title">{{title}} </h1>
+<section class="archive">
+  <h2 class="archive__title">Siste poster</h2>
+  {% for post in posts %}
+    <article class="archive__post">
+      <h2>
+        <a class="archive__link" href="{{ post.url | url }}">{{ post.data.title  }}</a>
+      </h2>
+      <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+      {% excerpt post %}
+      <a class="archive__more" href="{{ post.url | url }}" aria-label="Les mer om {{ post.data.title }}">Les mer</a>
+    </article>
+  {% endfor %}
+</section>

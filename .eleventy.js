@@ -1,11 +1,14 @@
 const CleanCSS = require("clean-css");
 const moment = require('moment');
 const Terser = require("terser");
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 
 moment.locale('nb');
 
 module.exports = function (eleventyConfig) {
+
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   eleventyConfig.addPassthroughCopy('fonts');
 

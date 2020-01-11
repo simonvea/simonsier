@@ -41,7 +41,7 @@ body, html {
   color: #ffffff;
 }
 
-.welcome__title {
+.page__title {
   color: var(--text-highlight-color);
   font-family: Lora, serif;
   font-size: 2rem;
@@ -99,15 +99,14 @@ body, html {
   font-size: 1.5rem;
 }
 
+.menu__link--active {
+  text-decoration: wavy;
+}
+
 .menu__link:hover {
   text-decoration: underline;
   text-decoration-skip-ink: auto;
   cursor: pointer;
-}
-
-.menu__link--active {
-  background-color: #4CAF50;
-  color: white;
 }
 
 .main-container {
@@ -115,20 +114,20 @@ body, html {
   margin: 0 20px; 
 }
 
-.last-posts__title {
+.last-posts__title, .archive__title {
   font-size: 1.5rem;
 }
 
-.last-posts__link {
+.last-posts__link, .archive__link {
   color: #8bb8df;
   text-decoration: none;
 }
 
-.last-posts__link:hover {
+.last-posts__link:hover, .archive__link:hover {
   text-decoration: underline;
 }
 
-.last-posts__more {
+.last-posts__more, .archive__more {
   color: #8bb8df;
 }
 
