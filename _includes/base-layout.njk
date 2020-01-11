@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="no">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% set css %}
-      {% include "main.css" %}
+    {% include "main.css" %}
     {% endset %}
-  <style>
-    {{ css | cssmin | safe }}
-  </style>
-  <title>Simonsier.no</title>
-</head>
+    <style>
+      {{css | cssmin | safe}}
+    </style>
+    <title>Simonsier.no</title>
+  </head>
 
-<body>
-  <header class="header">
-    <h1 class="header__title"><a href="/" >Simon sier... </a></h1>
-    <section>
-      <ul>
-        siste poster...
-      </ul>
-    </section>
-    <span class="menu__toggle">Meny</span>
-    <nav class="menu">
-      <ul class="menu__list">
-        <li><a href="" class="menu__link">Om meg</a></li>
-        <li><a href="" class="menu__link">Blogg</a></li>
-        <li><a href="" class="menu__link">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main class="main-container">
-    {{ content | safe }}
-  </main>
-  <script>
-    const menuToggle = document.querySelector('.menu__toggle');
-    const menu = document.querySelector('.menu');
-
-    menuToggle.addEventListener('click', () => menu.classList.toggle('menu--open'));
-  </script>
-</body>
+  <body>
+    <header class="header">
+      <h1 class="header__title">
+        <a href="/">Simon sier...
+        </a>
+      </h1>
+      <span class="menu__toggle">Meny</span>
+      <nav class="menu">
+        <ul class="menu__list">
+          <li>
+            <a href="" class="menu__link">Arkiv</a>
+          </li>
+          <li>
+            <a href="" class="menu__link">Om meg</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-container">
+      {{ content | safe }}
+    </main>
+    {% set js %}
+    {% include "main.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  </body>
 
 </html>

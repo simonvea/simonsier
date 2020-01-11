@@ -1,6 +1,18 @@
+/* lora-700 - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'),
+    url('/fonts/lora-v13-latin-700.woff2') format('woff2'),
+    url('/fonts/lora-v13-latin-700.woff') format('woff');
+}
+
 
 :root {
   --main-background-color: #121212;
+  --text-highlight-color: #fedb8b;
 }
 
 body, html {
@@ -8,6 +20,7 @@ body, html {
   color: white;
   margin: 0;
   box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
 }
 
 .header {
@@ -28,10 +41,18 @@ body, html {
   color: #ffffff;
 }
 
+.welcome__title {
+  color: var(--text-highlight-color);
+  font-family: Lora, serif;
+  font-size: 2rem;
+  z-index: 2;
+  text-shadow: 3px 3px #000000;
+}
+
 .menu {
   position: absolute;
   background-color: var(--main-background-color);
-  top: 61px;
+  top: 81px;
   left: -100%;
   float: right;
   text-align: center;
@@ -79,7 +100,9 @@ body, html {
 }
 
 .menu__link:hover {
-  background-color: #555;
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  cursor: pointer;
 }
 
 .menu__link--active {
@@ -89,18 +112,36 @@ body, html {
 
 .main-container {
   padding-left: 10px;
+  margin: 0 20px; 
 }
+
+.last-posts__title {
+  font-size: 1.5rem;
+}
+
+.last-posts__link {
+  color: #8bb8df;
+  text-decoration: none;
+}
+
+.last-posts__link:hover {
+  text-decoration: underline;
+}
+
+.last-posts__more {
+  color: #8bb8df;
+}
+
 
 @media only screen and (min-width: 768px) {
   /* For desktop */
   .header {
-    width: 300px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    flex-direction: column;
-    justify-content: start;
+    flex-direction: row;
+  }
+
+  .header__title a {
+    margin-left: 5vw;
+    font-size: 2rem;
   }
 
   .menu__toggle {
@@ -109,16 +150,41 @@ body, html {
 
   .menu {
     display: block;
-    margin-top: 15vh;
-    width: 100%;
-    left: 0;
+    position: relative;
+    float: none;
+    top: auto;
+    left: auto;
+    width: auto;
+    margin-right: 5vw;
+  }
+
+  .menu__list {
+    display: flex;
+  }
+  .menu__list li {
+    border: none;
+  }
+
+  .menu__list li:first-child {
+    border: none;
   }
 
   .menu__link {
     display: block;
+    font-size: 1.2rem;
   }
 
   .main-container {
-    margin-left: 300px;
+    margin-left: 22vw;
+    margin-right: 22vw;
   }
+
+  .welcome__title {
+    font-size: 3rem;
+  }
+
+  .last-posts__title {
+    font-size: 2rem;
+  }
+
 }

@@ -1,0 +1,24 @@
+---
+layout: base-layout.njk
+pagination:
+  data: collections.post
+  size: 10
+  reverse: true
+  alias: posts
+---
+<section class="welcome">
+  <h1 class="welcome__title">En blogg om filosofi, programmering og annet div</h1>
+</section>
+<section class="last-posts">
+  <h2 class="last-posts__title">Siste poster</h2>
+  {% for post in posts %}
+    <article class="last-posts__post">
+      <h2>
+        <a class="last-posts__link" href="{{ post.url | url }}">{{ post.data.title  }}</a>
+      </h2>
+      <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+      {% excerpt post %}
+      <a class="last-posts__more" href="{{ post.url | url }}" aria-label="Les mer om {{ post.data.title }}">Les mer</a>
+    </article>
+  {% endfor %}
+</section>
