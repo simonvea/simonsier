@@ -1,9 +1,14 @@
 const CleanCSS = require("clean-css");
 const moment = require('moment');
+const Terser = require("terser");
+
 
 moment.locale('nb');
 
 module.exports = function (eleventyConfig) {
+
+  eleventyConfig.addPassthroughCopy('fonts');
+
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
@@ -14,6 +19,16 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter('dateReadable', date => {
     return moment(date).format('LL'); // E.g. May 31, 2019
+  });
+
+  eleventyConfig.addFilter("jsmin", function (code) {
+    let minified = Terser.minify(code);
+    if (minified.error) {
+      console.log("Terser error: ", minified.error);
+      return code;
+    }
+
+    return minified.code;
   });
 
   eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
@@ -46,3 +61,5 @@ function extractExcerpt(article) {
 
   return excerpt;
 }
+
+

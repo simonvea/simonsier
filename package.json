@@ -15,6 +15,7 @@
     "moment": "^2.24.0"
   },
   "dependencies": {
-    "clean-css": "^4.2.1"
+    "clean-css": "^4.2.1",
+    "terser": "^4.6.2"
   }
 }
