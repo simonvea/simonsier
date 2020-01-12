@@ -18,10 +18,10 @@ På denne bloggen tenker jeg å skrive om diverse ting som opptar meg, hovedsake
 ### Kort om meg
 Jeg interesserer meg for de store spørsmålene og liker å lage ting ved hjelp av kode.
 
-Jeg er..
+Jeg er:
 
 - Utdannet filosof med mastergrad i filosofi fra UiO
   - Videreutdanner meg innen filosofisk praksis
 - Jobber som programvareutvikler
   - Er selvlært
-  - Mer informasjon om hva jeg har laget finner du på [simonopheim.no](https://www.simonopheim.no)
+  - Mer informasjon om hva jeg har laget finner du på [simonopheim.no](https://www.simonopheim.no) og [GitHub](https://www.github.com/simonvea)
