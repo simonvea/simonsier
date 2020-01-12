@@ -3,16 +3,23 @@ const CleanCSS = require("clean-css");
 const moment = require('moment');
 const Terser = require("terser");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+// const pluginPWA = require("eleventy-plugin-pwa"); currently not needed
 
 
 moment.locale('nb');
 
 module.exports = function (eleventyConfig) {
 
+  // add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  // eleventyConfig.addPlugin(pluginPWA);
 
-  eleventyConfig.addPassthroughCopy('fonts');
+  // add passThroughs
+  eleventyConfig.addPassthroughCopy('./src/fonts');
+  eleventyConfig.addPassthroughCopy('./src/styles');
+  eleventyConfig.addPassthroughCopy('./src/images');
 
+  // add filters
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
@@ -50,6 +57,18 @@ module.exports = function (eleventyConfig) {
       }
     }
   });
+
+  //set build settings
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+    },
+    templateFormats: ["html", "njk", "md", "11ty.js"],
+    htmlTemplateEngine: "njk",
+    markdownTemplateEngine: "njk",
+    passthroughFileCopy: true
+  };
 };
 
 function extractExcerpt(article) {
