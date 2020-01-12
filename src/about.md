@@ -9,7 +9,7 @@ title: "Om meg"
 
 ## Simon Opheim
 
-Hei jeg heter Simon Opheim.
+Hei, jeg heter Simon Opheim.
 
 Velkommen til min blogg!
 
