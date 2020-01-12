@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="no">
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% set css %}
-    {% include "main.css" %}
+    {% include "critical.css" %}
     {% endset %}
     <style>
       {{css | cssmin | safe}}
     </style>
     <title>Simonsier.no</title>
+    <link rel="stylesheet" href="{{'/styles/main.css' | url }}" media="print" onload="this.media='all'">
+    <script>
+      if ("serviceWorker" in navigator)
+        navigator.serviceWorker.register("/service-worker.js");
+    </script>
   </head>
-
   <body>
     <header class="header">
       <h1 class="header__title">
@@ -22,15 +25,16 @@
       </h1>
       <span class="menu__toggle">Meny</span>
       {% set navPages = collections.all | eleventyNavigation %}
-      <nav class="menu">
-        <ul class="menu__list">
-        {%- for entry in navPages %}
-          <li>
-            <a class="menu__link {% if entry.url == page.url %}menu__link--active{% endif %}" href="{{ entry.url | url }}">{{ entry.title }}</a>
-          </li>
-        {%- endfor %}
-        </ul>
-      </nav>
+        <nav class="menu">
+          <ul class="menu__list">
+          {%- for entry in navPages %}
+            <li>
+              <a class="menu__link {% if entry.url == page.url %}menu__link--active{% endif %}" href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+          {%- endfor %}
+          </ul>
+        </nav>
+      </div>
     </header>
     <main class="main-container">
       {{ content | safe }}
@@ -42,5 +46,4 @@
       {{ js | jsmin | safe }}
     </script>
   </body>
-
 </html>

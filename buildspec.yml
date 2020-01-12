@@ -9,7 +9,7 @@ phases:
       - npm install
   build:
     commands:
-      - npx @11ty/eleventy
+      - npm run build
 artifacts:
   files:
     - '**/*'

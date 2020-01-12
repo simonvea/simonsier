@@ -1,0 +1,11 @@
+---
+layout: base-layout.njk
+---
+<article class="article">
+  <h1 class="article__title">{{ title }}</h1> 
+  <section class="article__info">
+    <time class="article__time" datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time> 
+    <span>— {{ helpers.getReadingTime(content) }} min lesetid</span>
+  </section>
+  {{ content | safe }}
+</article>
