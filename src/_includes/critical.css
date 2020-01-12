@@ -49,6 +49,10 @@ body, html {
   text-shadow: 3px 3px #000000;
 }
 
+.article__title {
+  text-shadow: none;
+}
+
 .menu {
   position: absolute;
   background-color: var(--main-background-color);
@@ -123,12 +127,13 @@ body, html {
   text-decoration: none;
 }
 
-.last-posts__link:hover, .archive__link:hover, a {
+.last-posts__link:hover, .archive__link:hover, a:hover {
   text-decoration: underline;
 }
 
 .last-posts__more, .archive__more {
   color: #8bb8df;
+  text-decoration: underline;
 }
 
 .article p {
@@ -136,6 +141,7 @@ body, html {
   line-height: 1.5625rem;
   width: calc(100% - 40px);
   max-width: 600px;
+  font-weight: 300;
 }
 
 .article h2 {
