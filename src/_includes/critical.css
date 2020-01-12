@@ -40,6 +40,9 @@ body, html {
   text-decoration: none;
   color: #ffffff;
 }
+.header__title a:hover {
+  text-decoration: none;
+}
 
 .page__title, .article__title {
   color: var(--text-highlight-color);
