@@ -12,6 +12,9 @@
     </style>
     <title>Simonsier.no</title>
     <link rel="stylesheet" href="{{'/styles/main.css' | url }}" media="print" onload="this.media='all'">
+    {% if content.data.title === "Om meg" %}
+      <link rel="stylesheet" href="{{'/styles/about.css' | url }}" media="print" onload="this.media='all'">
+    {% endif %} {# TODO: FIX #}
     {# <script>
       if ("serviceWorker" in navigator)
         navigator.serviceWorker.register("/service-worker.js");
