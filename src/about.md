@@ -13,7 +13,7 @@ Hei, jeg heter Simon Opheim.
 
 Velkommen til min blogg!
 
-På denne bloggen tenker jeg å skrive om diverse ting som opptar meg, hovedsakelig filosofiske spørsmål eller kodeguider.
+Jeg har laget denne bloggen for å dele minte tanker om diverse ting som opptar meg, hovedsakelig filosofiske spørsmål eller kodeguider.
 
 ### Kort om meg
 Jeg interesserer meg for de store spørsmålene og liker å lage ting ved hjelp av kode.
