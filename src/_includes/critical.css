@@ -15,6 +15,10 @@
     url('/fonts/lora-v13-latin-700.woff') format('woff');
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body, html {
   background-color: var(--main-background-color);
   color: white;

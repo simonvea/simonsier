@@ -2,3 +2,5 @@
 
 Personlig blogg.
 
+## TODO:
+* Oppdatere layout i arkiv
