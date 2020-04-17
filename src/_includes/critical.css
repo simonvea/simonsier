@@ -1,4 +1,3 @@
-
 :root {
   --main-background-color: #121212;
   --text-highlight-color: #fedb8b;
@@ -19,12 +18,14 @@ html {
   scroll-behavior: smooth;
 }
 
-body, html {
+body,
+html {
   background-color: var(--main-background-color);
   color: white;
   margin: 0;
   box-sizing: border-box;
-  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .header {
@@ -48,7 +49,8 @@ body, html {
   text-decoration: none;
 }
 
-.page__title, .article__title {
+.page__title,
+.article__title {
   color: var(--text-highlight-color);
   font-family: Lora, serif;
   font-size: 2rem;
@@ -99,7 +101,7 @@ body, html {
 }
 
 .menu__list li:first-child {
-  border-top: 1px solid var(--main-background-color); 
+  border-top: 1px solid var(--main-background-color);
 }
 
 .menu__link {
@@ -122,34 +124,42 @@ body, html {
 }
 
 .main-container {
-  margin: 0 20px 10vh; 
+  margin: 0 20px 10vh;
 }
 
-.last-posts__post {
+.last-posts__post,
+.archive__post {
   box-shadow: 2px 2px #000000;
   background-color: rgba(255, 255, 255, 0.02);
   padding: 1rem;
   margin: 1rem 0;
 }
 
-.last-posts__post > h2 {
+.last-posts__post > h2,
+.archive__post > h2 {
   margin-top: 0;
 }
 
-.last-posts__title, .archive__title {
+.last-posts__title,
+.archive__title {
   font-size: 1.5rem;
 }
 
-.last-posts__link, .archive__link, a {
+.last-posts__link,
+.archive__link,
+a {
   color: #8bb8df;
   text-decoration: none;
 }
 
-.last-posts__link:hover, .archive__link:hover, a:hover {
+.last-posts__link:hover,
+.archive__link:hover,
+a:hover {
   text-decoration: underline;
 }
 
-.last-posts__more, .archive__more {
+.last-posts__more,
+.archive__more {
   color: #8bb8df;
   text-decoration: underline;
 }
@@ -174,7 +184,6 @@ body, html {
 .article__info {
   font-size: 0.9rem;
 }
-
 
 @media only screen and (min-width: 768px) {
   /* For desktop */

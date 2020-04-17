@@ -19,6 +19,7 @@ title: Arkiv
         <a class="archive__link" href="{{ post.url | url }}">{{ post.data.title  }}</a>
       </h2>
       <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+      <span>— {{ helpers.getReadingTime(post.templateContent) }} min lesetid</span>
       {% excerpt post %}
       <a class="archive__more" href="{{ post.url | url }}" aria-label="Les mer om {{ post.data.title }}">Les mer</a>
     </article>
