@@ -1,5 +1,5 @@
 :root {
-  --main-background-color: #121212;
+  --main-background-color: rgb(26, 26, 26);
   --text-highlight-color: #fedb8b;
 }
 
@@ -21,7 +21,7 @@ html {
 body,
 html {
   background-color: var(--main-background-color);
-  color: white;
+  color: rgb(224, 224, 224);
   margin: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
@@ -169,10 +169,11 @@ a:hover {
   line-height: 1.5625rem;
   width: calc(100% - 40px);
   max-width: 600px;
+  text-rendering: optimizeLegibility;
 }
 
 .article p:first-of-type {
-  font-weight: bold;
+  font-size: 1.35rem;
 }
 
 .article h2 {
@@ -183,6 +184,18 @@ a:hover {
 
 .article__info {
   font-size: 0.9rem;
+}
+
+.article img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.article ul,
+article li {
+  font-size: 1.125rem;
+  line-height: 1.5625rem;
 }
 
 @media only screen and (min-width: 768px) {
