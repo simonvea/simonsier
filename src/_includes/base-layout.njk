@@ -1,3 +1,7 @@
+---
+siteTitle: Simon Opheim
+---
+
 <!DOCTYPE html>
 <html lang="no">
   <head>
@@ -11,10 +15,9 @@
       {{css | cssmin | safe}}
     </style>
     <title>Simonsier.no</title>
-    <link rel="stylesheet" href="{{'/styles/prism-vsc-dark.css' | url }}" media="print" onload="this.media='all'">
-    {% if content.data.title === "Om meg" %}
-      <link rel="stylesheet" href="{{'/styles/about.css' | url }}" media="print" onload="this.media='all'">
-    {% endif %} {# TODO: FIX #}
+    {% if cssLink %}
+    <link rel="stylesheet" href="{{ cssLink | url }}" media="print" onload="this.media='all'">
+    {% endif %}
     {# <script>
       if ("serviceWorker" in navigator)
         navigator.serviceWorker.register("/service-worker.js");
@@ -24,7 +27,7 @@
     <a id="top"></a>
     <header class="header">
       <h1 class="header__title">
-        <a href="/">Simon sier...
+        <a href="/">{{ siteTitle }}
         </a>
       </h1>
       <span class="menu__toggle">Meny</span>
