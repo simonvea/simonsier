@@ -1,0 +1,48 @@
+---
+layout: base-layout.njk
+eleventyNavigation:
+  key: Portefølje
+  order: 2
+title: Portefølje
+---
+<h1 class="page__title">{{title}} </h1>
+<section class="portefølje">
+  <section class="projects">
+    <h2>Hobbyprosjekter</h2>
+    {% for project in portfolio.projects %}
+      <article class="project">
+          <section class="project__img">
+              <img src="{{project.imgUrl | url }}" alt="Bilde av {{project.name}}">
+          </section>
+        <section class="project__info">
+          <h3>{{project.name}}</h3>
+          <p> {{project.desc}} </p>
+        </section>
+        <section class="project__links">
+            <a href="{{project.url }}" target="_blank">Se side</a>
+            <a href="{{project.githubUrl}}" target="_blank">Se kode</a>
+        </section>
+      </article>
+    {% endfor %}
+    <p>
+    For en mer utfyllende liste over ting jeg har laget på fritiden, gjerne ta en titt på min Github.
+    </p>
+
+  <article class="portefølje__experience">
+    <h2>Erfaring</h2>
+    <ul>
+      {% for experience in portfolio.experiences %}
+        <li> {{experience.title}} </li>
+      {% endfor %}
+    </ul>
+  </article>
+
+  <article class="portefølje__education">
+    <h2>Utdanning, kurs og sertifiseringer</h2>
+    <ul>
+      {% for edu in portfolio.education %}
+        <li> {{edu.title}} </li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>

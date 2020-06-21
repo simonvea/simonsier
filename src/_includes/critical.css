@@ -198,6 +198,13 @@ article li {
   line-height: 1.5625rem;
 }
 
+.project {
+  box-shadow: 2px 2px 2px 2px #000;
+  padding: 1rem;
+  background-color: rgba(26, 26, 26, 0.1);
+  margin-bottom: 1rem;
+}
+
 @media only screen and (min-width: 768px) {
   /* For desktop */
   .header {

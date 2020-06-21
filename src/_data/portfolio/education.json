@@ -1,0 +1,49 @@
+[
+  {
+    "title": "Cloud Practitioner",
+    "where": "AWS Certification",
+    "from": "12.2019"
+  },
+  {
+    "title": "Filosofiske, etiske og eksistensielle dialoger",
+    "where": "Universitetet i Oslo",
+    "from": "01.2020",
+    "to": "06.2020",
+    "desc": "Et fag om å lede dialoger, tatt som en del i videreutdanning innen filosofisk praksis."
+  },
+  {
+    "title": "Fullstack Open",
+    "where": "University of Helsinki",
+    "from": "06.2019",
+    "to": "08.2019",
+    "desc": "Fem studiepoeng i react og express"
+  },
+  {
+    "title": "Master i filosofi",
+    "where": "Universitet i Oslo, Western University, Canada",
+    "from": "08.2015",
+    "to": "08.2018",
+    "desc": "Jeg skrev om begrepsutvikling i relasjon til samfunnsutvikling."
+  },
+  {
+    "title": "Sosialt Entreprenørskap",
+    "where": "Universitetet i Oslo",
+    "from": "01.2017",
+    "to": "08.2017",
+    "desc": "Utdanning og praksis innen verdibasert entreprenøskap"
+  },
+  {
+    "title": "Bachelor i Samfunnsvitenskapelige fag",
+    "where": "NTNU",
+    "from": "08.2010",
+    "to": "08.2014",
+    "desc": "Fordypelse: Samfunnsøkonomi"
+  },
+  {
+    "title": "Bachelor i humanistiske fag",
+    "where": "NTNU",
+    "from": "08.2009",
+    "to": "12.2014",
+    "desc": "Fordypelse: Filosofi"
+  }
+]
