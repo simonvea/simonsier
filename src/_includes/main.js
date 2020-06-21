@@ -1,19 +1,13 @@
 const menuToggle = document.querySelector('.menu__toggle');
 const menu = document.querySelector('.menu');
+const menuCover = document.querySelector('.menu__cover');
 let closed = true;
-
-function closeMenuOnOutsideClick({ target }) {
-  if (target.className === 'menu__toggle' || closed) {
-    return
-  }
-  toggleMenu();
-}
 
 function toggleMenu() {
   menu.classList.toggle('menu--open');
+  menuCover.classList.toggle('menu__cover--active');
   closed = !closed;
 }
 
-
 menuToggle.addEventListener('click', toggleMenu);
-document.addEventListener('click', closeMenuOnOutsideClick);
+menuCover.addEventListener('click', toggleMenu);
