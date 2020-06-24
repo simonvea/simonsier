@@ -3,36 +3,37 @@
     "name": "ordsky.no",
     "url": "https://www.ordsky.no",
     "githubUrl": "https://www.github.com/simonvea",
-    "desc": "En nettside for å generere ordskyer og ord i tekster."
+    "desc": "En nettside for å generere ordskyer og ord i tekster.",
+    "imgUrl": "/images/ordsky.png"
   },
   {
     "name": "Bondesjakk med uslåelig AI",
-    "url": "https://www.github.pages/simonvea/tic-tac-toe-AI",
-    "githubUrl": "https://www.github.com/simonvea",
+    "url": "https://simonvea.github.io/tic-tac-toe-AI",
+    "githubUrl": "https://www.github.com/simonvea/tic-tac-toe-AI",
     "desc": "Et enkelt spill laget i HTML5 Canvas, hvor jeg har implementert minimax algoritmen for AI"
   },
   {
     "name": "Flappy Canvas",
-    "url": "https://www.github.pages/simonvea/flappy-canvas",
-    "githubUrl": "https://www.github.com/simonvea",
+    "url": "https://simonvea.github.io/flappy-canvas",
+    "githubUrl": "https://www.github.com/simonvea/flappy-canvas",
     "desc": "En enkel version av hitten flappy bird laget i HTML5 Canvas"
   },
   {
     "name": "Minesweeper",
-    "url": "https://www.github.pages/simonvea/beesweeper",
-    "githubUrl": "https://www.github.com/simonvea",
+    "url": "https://simonvea.github.io/beesweeper",
+    "githubUrl": "https://www.github.com/simonvea/beesweeper",
     "desc": "Minesweeper laget i HTML5 Canvas"
   },
   {
     "name": "Pizzahuset",
-    "url": "https://www.github.pages/simonvea/pizzahuset",
-    "githubUrl": "https://www.github.com/simonvea",
+    "url": "https://simonvea.github.io/pizzahuset",
+    "githubUrl": "https://www.github.com/simonvea/pizzahuset",
     "desc": "En nettside for en fikti pizzasjappe. Inkluderer adminside for å håndtere bestillinger."
   },
   {
     "name": "Kalkulator",
-    "url": "https://www.github.pages/simonvea/kalkulator",
-    "githubUrl": "https://www.github.com/simonvea",
+    "url": "https://simonvea.github.io/kalkulator",
+    "githubUrl": "https://www.github.com/simonvea/kalkulator",
     "desc": "En kul kalkulator laget i Javascript"
   }
 ]
