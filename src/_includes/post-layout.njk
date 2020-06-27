@@ -8,7 +8,9 @@ cssLink: /styles/prism-vsc-dark.css
     <time class="article__time" datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time> 
     <span>— {{ helpers.getReadingTime(content) }} min lesetid</span>
   </section>
-  {{ content | safe }}
+  <section class="article__content">
+    {{ content | safe }}
+  </section>
   <section>
     <a href="#top">Til toppen</a>
   </section>
