@@ -4,6 +4,10 @@ const moment = require('moment');
 const Terser = require('terser');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const markdownIt = require('markdown-it');
+const markdownItModifyToken = require('markdown-it-modify-token');
+const markdownItTOC = require('markdown-it-table-of-contents');
+const markdownItAnchor = require('markdown-it-anchor');
 // const pluginPWA = require("eleventy-plugin-pwa"); currently not needed
 
 moment.locale('nb');
@@ -12,7 +16,6 @@ module.exports = function (eleventyConfig) {
   // add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
-
   // eleventyConfig.addPlugin(pluginPWA);
 
   // add passThroughs
@@ -43,7 +46,28 @@ module.exports = function (eleventyConfig) {
     return minified.code;
   });
 
-  eleventyConfig.addShortcode('excerpt', (article) => extractExcerpt(article));
+  const markdownLibrary = markdownIt({
+    modifyToken: function (token, env) {
+      // see API https://markdown-it.github.io/markdown-it/#Token
+      // token will also have an attrObj property added for convenience
+      // which allows easy get and set of attribute values.
+      // It is prepopulated with the current attr values.
+      // Values returned in token.attrObj will override existing attr values.
+      // env will contain any properties passed to markdown-it's render
+      // Token can be modified in place, no return is necessary
+      switch (token.type) {
+        case 'link_open':
+          token.attrObj.target = '_blank'; // set all links to open in new window
+          token.attrObj.rel = 'noopener';
+          break;
+      }
+    },
+  });
+  markdownLibrary.use(markdownItAnchor);
+  markdownLibrary.use(markdownItTOC);
+  markdownLibrary.use(markdownItModifyToken);
+
+  eleventyConfig.setLibrary('md', markdownLibrary);
 
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
