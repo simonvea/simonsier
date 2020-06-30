@@ -4,11 +4,20 @@ eleventyNavigation:
   key: Portefølje
   order: 2
 title: Portefølje
+cssLink: /styles/main.css
 ---
 <h1 class="page__title">{{title}} </h1>
-<section class="portefølje">
-  <section class="projects">
+<section> 
+  <ul class="portfolio__tabs">
+    <li><button type="button" class="portfolio__tab portfolio__tab--active" >Hobbyprosjekter</button></li>
+    <li><button type="button" class="portfolio__tab" >Erfaring</button></li>
+    <li><button type="button" class="portfolio__tab" >Utdanning</button></li>
+  </ul>
+ </section>
+<article class="portfolio">
+  <section class="portfolio__section" id="Hobbyprosjekter">
     <h2>Hobbyprosjekter</h2>
+    <section class="projects">
     {% for project in portfolio.projects %}
       <article class="project">
           <section class="project__img">
@@ -24,25 +33,27 @@ title: Portefølje
         </section>
       </article>
     {% endfor %}
+    </section>
     <p>
     For en mer utfyllende liste over ting jeg har laget på fritiden, gjerne ta en titt på min Github.
     </p>
+  </section>
 
-  <article class="portefølje__experience">
+  <section class="portfolio__section animate--bottom" id="Erfaring" style="display: none">
     <h2>Erfaring</h2>
     <ul>
       {% for experience in portfolio.experiences %}
         <li> {{experience.title}} </li>
       {% endfor %}
     </ul>
-  </article>
+  </section>
 
-  <article class="portefølje__education">
+  <section class="portfolio__section animate--right" id="Utdanning"  style="display: none">
     <h2>Utdanning, kurs og sertifiseringer</h2>
     <ul>
       {% for edu in portfolio.education %}
         <li> {{edu.title}} </li>
       {% endfor %}
     </ul>
-  </article>
-</section>
+  </section>
+</article>

@@ -116,7 +116,8 @@ html {
 }
 
 .menu__link--active {
-  text-decoration: wavy;
+  text-decoration: underline;
+  color: var(--text-highlight-color);
 }
 
 .menu__link:hover {
@@ -216,18 +217,76 @@ article li {
   line-height: 1.5625rem;
 }
 
+.portfolio {
+  max-width: 90vw;
+}
+
+.portfolio__tabs {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 3px 3px 3px 3px #000000;
+}
+
+.portfolio__tab.portfolio__tab--border-radius-left {
+  border-radius: 4px 0 0 4px;
+}
+
+.portfolio__tab.portfolio__tab--border-radius-right {
+  border-radius: 0 4px 4px 0;
+}
+
+.portfolio__tabs .portfolio__tab {
+  padding: 8px 16px;
+  border: none;
+  display: block;
+  outline: 0;
+  background-color: inherit;
+  font-size: 1rem;
+  color: white;
+  margin: auto;
+}
+
+.portfolio__tab:hover {
+  cursor: pointer;
+  background-color: var(--text-highlight-color) !important;
+  color: black !important;
+}
+
+.portfolio__tab.portfolio__tab--active {
+  background-color: rgb(26, 26, 26, 0.8);
+  border-radius: 2px;
+  color: var(--text-highlight-color);
+}
+
+.projects {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(10, 300px);
+  gap: 1rem;
+  overflow-x: scroll;
+  scroll-padding: 0 50%;
+  scroll-snap-type: x mandatory;
+  max-width: 100%;
+}
+
 .project {
   box-shadow: 2px 2px 2px 2px #000;
   padding: 1rem;
   background-color: rgba(26, 26, 26, 0.1);
   margin-bottom: 1rem;
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 3fr 1fr;
   grid-template-areas:
     'img info info'
     'img links links';
   gap: 1rem;
+  scroll-snap-align: center;
 }
 
 .project__img {
