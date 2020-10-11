@@ -4,8 +4,6 @@ date: 2020-10-10
 description: En ofte oversett egenskap ved tester er hva som kommuniseres til andre. Her er noen tips til å gjøre det på en god måte.
 ---
 
-En ofte oversett egenskap ved tester er hva som kommuniseres til andre. Her er noen tips til å gjøre det på en god måte.
-
 ## Testing
 
 Testing handler ikke om å finne bugs.

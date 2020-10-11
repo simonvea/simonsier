@@ -9,6 +9,9 @@ cssLink: /styles/prism-vsc-dark.css
     <span>— {{ helpers.getReadingTime(content) }} min lesetid</span>
   </section>
   <section class="article__content">
+    <p>
+      {{ description }}
+    </p>
     {{ content | safe }}
   </section>
   <section>
