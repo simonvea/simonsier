@@ -198,6 +198,18 @@ article li {
   line-height: 1.5625rem;
 }
 
+.about_certifications {
+  margin-top: 2rem;
+  margin-left: -15px;
+  width: 100vh;
+}
+
+.about_certification {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
 @media only screen and (min-width: 768px) {
   /* For desktop */
   .header {
@@ -252,6 +264,19 @@ article li {
 
   .about__content {
     max-width: 600px;
+    margin-bottom: 2rem;
+  }
+
+  .about_certifications {
+    margin-top: 2rem;
+    margin-left: 0;
+    width: auto;
+  }
+
+  .about_certification {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
   }
 
   .welcome__title {

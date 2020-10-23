@@ -6,8 +6,6 @@ eleventyNavigation:
 title: 'Om meg'
 ---
 
-![Profilbilde av Simon Opheim]({{ "/images/profilbilde.png" | url }})
-
 ## Simon Opheim
 
 Hei, jeg heter Simon Opheim.
