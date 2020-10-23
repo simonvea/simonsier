@@ -1,7 +1,7 @@
 const fs = require('fs');
 const CleanCSS = require('clean-css');
 const moment = require('moment');
-const Terser = require('terser');
+const { minify } = require('terser');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
@@ -36,14 +36,18 @@ module.exports = function (eleventyConfig) {
     return moment(date).format('LL'); // E.g. May 31, 2019
   });
 
-  eleventyConfig.addFilter('jsmin', function (code) {
-    let minified = Terser.minify(code);
-    if (minified.error) {
-      console.log('Terser error: ', minified.error);
-      return code;
+  eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (
+    code,
+    callback
+  ) {
+    try {
+      const minified = await minify(code);
+      callback(null, minified.code);
+    } catch (err) {
+      console.error("Terser error: ", err);
+      // Fail gracefully.
+      callback(null, code);
     }
-
-    return minified.code;
   });
 
   const markdownLibrary = markdownIt({
