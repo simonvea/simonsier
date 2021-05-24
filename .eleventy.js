@@ -8,6 +8,7 @@ const markdownIt = require('markdown-it');
 const markdownItModifyToken = require('markdown-it-modify-token');
 const markdownItTOC = require('markdown-it-table-of-contents');
 const markdownItAnchor = require('markdown-it-anchor');
+const htmlmin = require('html-minifier');
 // const pluginPWA = require("eleventy-plugin-pwa"); currently not needed
 
 moment.locale('nb');
@@ -36,19 +37,19 @@ module.exports = function (eleventyConfig) {
     return moment(date).format('LL'); // E.g. May 31, 2019
   });
 
-  eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (
-    code,
-    callback
-  ) {
-    try {
-      const minified = await minify(code);
-      callback(null, minified.code);
-    } catch (err) {
-      console.error("Terser error: ", err);
-      // Fail gracefully.
-      callback(null, code);
+  eleventyConfig.addNunjucksAsyncFilter(
+    'jsmin',
+    async function (code, callback) {
+      try {
+        const minified = await minify(code);
+        callback(null, minified.code);
+      } catch (err) {
+        console.error('Terser error: ', err);
+        // Fail gracefully.
+        callback(null, code);
+      }
     }
-  });
+  );
 
   const markdownLibrary = markdownIt({
     modifyToken: function (token, env) {
@@ -87,10 +88,29 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+    if (
+      process.env.ELEVENTY_PRODUCTION &&
+      outputPath &&
+      outputPath.endsWith('.html')
+    ) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+      });
+      return minified;
+    }
+
+    return content;
+  });
+
   //set build settings
   return {
     dir: {
       input: 'src',
+      includes: '_includes',
+      layouts: '_layouts',
       output: '_site',
     },
     templateFormats: ['html', 'njk', 'md', '11ty.js'],

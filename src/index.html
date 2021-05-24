@@ -1,5 +1,5 @@
 ---
-layout: base-layout.njk
+layout: base.njk
 pagination:
   data: collections.post
   size: 10
@@ -9,20 +9,34 @@ eleventyNavigation:
   key: Hjem
   order: 0
 ---
+
 <section class="page-header">
   <h1 class="page__title">En blogg om filosofi, programmering og annet div</h1>
 </section>
-<section class="last-posts">
+<section class="last-posts__container">
   <h2 class="last-posts__title">Siste poster</h2>
-  {% for post in posts %}
+  <div class="last-posts__posts-container">
+    {% for post in posts %}
     <article class="last-posts__post">
       <h2>
-        <a class="last-posts__link" href="{{ post.url | url }}">{{ post.data.title  }}</a>
+        <a class="last-posts__link" href="{{ post.url | url }}"
+          >{{ post.data.title }}</a
+        >
       </h2>
-      <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
-      <span>— {{ helpers.getReadingTime(post.templateContent) }} min lesetid</span>
+      <time datetime="{{ post.date | dateIso }}"
+        >{{ post.date | dateReadable }}</time
+      >
+      <span
+        >— {{ helpers.getReadingTime(post.templateContent) }} min lesetid</span
+      >
       <p>{{post.data.description }}</p>
-      <a class="last-posts__more" href="{{ post.url | url }}" aria-label="Les mer om {{ post.data.title }}">Les mer</a>
+      <a
+        class="last-posts__more"
+        href="{{ post.url | url }}"
+        aria-label="Les mer om {{ post.data.title }}"
+        >Les mer</a
+      >
     </article>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </section>

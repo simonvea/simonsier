@@ -1,5 +1,5 @@
 ---
-layout: about-layout.njk
+layout: about.njk
 eleventyNavigation:
   key: 'Om meg'
   order: 3
@@ -23,5 +23,4 @@ Jeg er:
 - Utdannet filosof med mastergrad i filosofi fra UiO
   - Videreutdanner meg innen [filosofisk praksis](https://www.nsfp.no)
 - Jobber som programvareutvikler
-  - Er selvlært
   - Mer informasjon om hva jeg har laget finner du på [GitHub](https://www.github.com/simonvea)

@@ -1,5 +1,5 @@
 ---
-layout: base-layout.njk
+layout: base.njk
 pagination:
   data: collections.post
   size: 10
@@ -10,18 +10,32 @@ eleventyNavigation:
   order: 1
 title: Arkiv
 ---
-<h1 class="page__title">{{title}} </h1>
+
+<h1 class="page__title">{{title}}</h1>
 <section class="archive">
   <h2 class="archive__title">Alle blogginnlegg</h2>
-  {% for post in posts %}
+  <div class="archive__container">
+    {% for post in posts %}
     <article class="archive__post">
       <h2>
-        <a class="archive__link" href="{{ post.url | url }}">{{ post.data.title  }}</a>
+        <a class="archive__link" href="{{ post.url | url }}"
+          >{{ post.data.title }}</a
+        >
       </h2>
-      <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
-      <span>— {{ helpers.getReadingTime(post.templateContent) }} min lesetid</span>
-      <p>{{post.data.description}} </p>
-      <a class="archive__more" href="{{ post.url | url }}" aria-label="Les mer om {{ post.data.title }}">Les mer</a>
+      <time datetime="{{ post.date | dateIso }}"
+        >{{ post.date | dateReadable }}</time
+      >
+      <span
+        >— {{ helpers.getReadingTime(post.templateContent) }} min lesetid</span
+      >
+      <p>{{post.data.description}}</p>
+      <a
+        class="archive__more"
+        href="{{ post.url | url }}"
+        aria-label="Les mer om {{ post.data.title }}"
+        >Les mer</a
+      >
     </article>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </section>

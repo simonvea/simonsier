@@ -58,8 +58,13 @@ html {
   text-shadow: 3px 3px #000000;
 }
 
+.page__title {
+  font-weight: 200;
+}
+
 .article__title {
   text-shadow: none;
+  font-weight: 300;
 }
 
 .menu {
@@ -127,12 +132,24 @@ html {
   margin: 0 20px 10vh;
 }
 
+.last-posts__container {
+  margin: auto;
+}
+
+.last-posts__posts-container,
+.archive__container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: auto;
+  justify-content: center;
+}
+
 .last-posts__post,
 .archive__post {
   box-shadow: 2px 2px #000000;
   background-color: rgba(255, 255, 255, 0.02);
   padding: 1rem;
-  margin: 1rem 0;
+  max-width: 520px;
 }
 
 .last-posts__post > h2,
