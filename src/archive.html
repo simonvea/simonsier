@@ -9,33 +9,11 @@ eleventyNavigation:
   key: Arkiv
   order: 1
 title: Arkiv
+description: Arkiv over eldre blog poster
+postsTitle: Alle blogginnlegg
 ---
 
-<h1 class="page__title">{{title}}</h1>
-<section class="archive">
-  <h2 class="archive__title">Alle blogginnlegg</h2>
-  <div class="archive__container">
-    {% for post in posts %}
-    <article class="archive__post">
-      <h2>
-        <a class="archive__link" href="{{ post.url | url }}"
-          >{{ post.data.title }}</a
-        >
-      </h2>
-      <time datetime="{{ post.date | dateIso }}"
-        >{{ post.date | dateReadable }}</time
-      >
-      <span
-        >— {{ helpers.getReadingTime(post.templateContent) }} min lesetid</span
-      >
-      <p>{{post.data.description}}</p>
-      <a
-        class="archive__more"
-        href="{{ post.url | url }}"
-        aria-label="Les mer om {{ post.data.title }}"
-        >Les mer</a
-      >
-    </article>
-    {% endfor %}
-  </div>
+<section>
+  <h1 class="page__title">{{title}}</h1>
+  {% include "posts.njk" %}
 </section>
