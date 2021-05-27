@@ -177,6 +177,10 @@ a:hover {
   margin-top: auto;
 }
 
+.article {
+  max-width: 100%;
+}
+
 .article p {
   font-size: 1.125rem;
   line-height: 1.5625rem;
