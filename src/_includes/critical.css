@@ -88,9 +88,6 @@ html {
 
 .menu__toggle {
   padding: 8px 16px;
-}
-
-.menu__toggle:hover {
   cursor: pointer;
 }
 
@@ -216,13 +213,12 @@ article li {
   line-height: 1.5625rem;
 }
 
-.about_certifications {
-  margin-top: 2rem;
+.about__certifications {
+  margin-top: 4rem;
   margin-left: -15px;
-  width: 100vh;
 }
 
-.about_certification {
+.about__certification {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
@@ -286,13 +282,13 @@ article li {
     margin-bottom: 2rem;
   }
 
-  .about_certifications {
+  .about__certifications {
     margin-top: 2rem;
     margin-left: 0;
     width: auto;
   }
 
-  .about_certification {
+  .about__certification {
     display: inline-block;
     height: 100%;
     vertical-align: middle;
