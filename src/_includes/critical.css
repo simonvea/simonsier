@@ -111,7 +111,8 @@ html {
 
 .menu__link {
   color: #ffffff;
-  padding: 15px;
+  padding: 15px 0;
+  width: 100%;
   text-decoration: none;
   text-align: center;
   display: inline-block;
@@ -265,6 +266,7 @@ article li {
 
   .menu__link {
     display: block;
+    padding: 15px;
     font-size: 1.2rem;
   }
 
