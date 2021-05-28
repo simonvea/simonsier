@@ -23,7 +23,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/fonts');
   eleventyConfig.addPassthroughCopy('./src/styles');
   eleventyConfig.addPassthroughCopy('./src/images');
-  eleventyConfig.addPassthroughCopy({ 'src/netlifyCMS': 'admin/' });
+  eleventyConfig.addPassthroughCopy('./src/admin/config.yml');
 
   // add filters
   eleventyConfig.addFilter('cssmin', function (code) {
