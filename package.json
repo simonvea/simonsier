@@ -6,10 +6,11 @@
   "scripts": {
     "build": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
-    "debug": "DEBUG=* npx eleventy"
+    "debug": "DEBUG=* npx eleventy",
+    "cms": "npx netlify-cms-proxy-server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Simon Opheim",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
