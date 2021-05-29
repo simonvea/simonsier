@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script>
       // Add some styling to the posts preview
-      var PostPreview = createClass({
+      const PostPreview = createClass({
         render: function () {
           const { entry } = this.props;
 
@@ -22,15 +22,18 @@
               { className: 'article__title' },
               entry.getIn(['data', 'title'])
             ),
-            h('section', { className: 'article__content' }),
-            h('p', {}, entry.getIn(['data', 'description'])),
-            h('div', {}, this.props.widgetFor('body'))
+            h(
+              'p',
+              { className: 'article__lead' },
+              entry.getIn(['data', 'description'])
+            ),
+            h('section', {}, this.props.widgetFor('body'))
           );
         },
       });
 
       CMS.registerPreviewTemplate('posts', PostPreview);
-      CMS.registerPreviewStyle('/styles/posts.css');
+      CMS.registerPreviewStyle('/styles/cms-preview.css');
     </script>
   </body>
 </html>

@@ -30,7 +30,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.article p:first-of-type {
+.article__lead {
   font-size: 1.35rem;
 }
 
@@ -52,4 +52,16 @@ body {
   text-shadow: 3px 3px #000000;
   text-shadow: none;
   font-weight: 300;
+}
+
+.article img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.article ul,
+.article li {
+  font-size: 1.125rem;
+  line-height: 1.5625rem;
 }

@@ -13,9 +13,9 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Tittel', name: 'title', widget: 'string', required: true }
       - {
-          label: 'Publish Date',
+          label: 'Publiseringsdato',
           name: 'date',
           widget: 'datetime',
           date_format: 'YYYY-MM-DD',
@@ -23,7 +23,7 @@ collections:
           required: true,
         }
       - {
-          label: 'Description',
+          label: 'Ingress',
           name: 'description',
           widget: 'text',
           required: true,
