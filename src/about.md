@@ -21,6 +21,5 @@ Jeg interesserer meg for de store spørsmålene og liker å lage ting ved hjelp 
 Jeg er:
 
 - Utdannet filosof med mastergrad i filosofi fra UiO
-  - Videreutdanner meg innen [filosofisk praksis](https://www.nsfp.no)
 - Jobber som programvareutvikler
   - Mer informasjon om hva jeg har laget finner du på [GitHub](https://www.github.com/simonvea)
