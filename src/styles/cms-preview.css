@@ -65,3 +65,12 @@ body {
   font-size: 1.125rem;
   line-height: 1.5625rem;
 }
+
+.article a {
+  color: #8bb8df;
+  text-decoration: none;
+}
+
+.article a:hover {
+  text-decoration: underline;
+}
