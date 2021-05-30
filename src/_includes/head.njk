@@ -10,7 +10,7 @@
     <style>
       {{css | cssmin | safe}}
     </style>
-    <title>{{ title }} | Simonsier.no</title>
+    <title>{{ title }} | {{ site.title }}</title>
     {% if cssLink %}
     <link rel="stylesheet" href="{{ cssLink | url }}" media="print" onload="this.media='all'">
     {% endif %}
