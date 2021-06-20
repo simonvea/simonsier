@@ -216,6 +216,7 @@ article li {
 .about__certifications {
   margin-top: 4rem;
   margin-left: -15px;
+  min-height: 182px;
 }
 
 .about__certification {
