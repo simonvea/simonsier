@@ -4,6 +4,7 @@ eleventyNavigation:
   key: 'Om meg'
   order: 3
 title: 'Om meg'
+description: Simon Opheim er en programvareutvikler og filosof.
 ---
 
 ## Simon Opheim
