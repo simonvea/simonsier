@@ -11,7 +11,10 @@ description: For seks måneder siden begynte jeg å trene etter et alt for langt
 
 ## Program
 
-
 ## Resultat
 
 ## Mine tanker
+
+
+### Viktigheten med riktig teknikk
+Albuesmerte i benk og skullderpress. Knesmerte i knebøy. Ryggsmerte i knebøy og markløft. Alt dette ble fikset gjennom endring og forbedring av teknikk.
