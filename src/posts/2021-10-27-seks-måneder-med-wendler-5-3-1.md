@@ -15,6 +15,8 @@ description: For seks måneder siden begynte jeg å trene etter et alt for langt
 
 ## Mine tanker
 
-
 ### Viktigheten med riktig teknikk
+
 Albuesmerte i benk og skullderpress. Knesmerte i knebøy. Ryggsmerte i knebøy og markløft. Alt dette ble fikset gjennom endring og forbedring av teknikk.
+
+Måten Wendler sitt program er bygget opp på, spesielt med tanke på å starte "for lett" og å øke sakte har gjort det mye lettere å fokusere på teknikk underveis uten at det har gått utover økningen i styrke.
