@@ -17,10 +17,11 @@ Jeg har laget denne bloggen for å dele mine tanker om diverse ting som opptar m
 
 ### Kort om meg
 
-Jeg interesserer meg for de store spørsmålene og liker å lage ting ved hjelp av kode.
+Jeg interesserer meg for gode dialoger og liker å lage ting ved hjelp av kode.
 
-Jeg er:
+Jeg:
 
-- Utdannet filosof med mastergrad i filosofi fra UiO
-- Jobber som programvareutvikler
-  - Mer informasjon om hva jeg har laget finner du på [GitHub](https://www.github.com/simonvea)
+- Er utdannet filosof med mastergrad i filosofi fra UiO
+- Videreutdanner meg som filosofisk praktiker gjennom [Norsk Selskap for Filosofisk Praksis](https://www.nsfp.no)
+- Jobber som fullstackutvikler i [fjellsport.no](https://www.fjellsport.no)
+- Deler mine hobbyprosjekter på [GitHub](https://www.github.com/simonvea)
