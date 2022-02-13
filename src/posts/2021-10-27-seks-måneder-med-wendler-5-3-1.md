@@ -48,6 +48,7 @@ Seks måneder med kontinuerlig trening føles bra!
 
 Jeg har absolutt fått trening inn i hverdagen, og jeg trener nå regelmessig minst fire ganger i uka. 
 
+### Styrke
 Den følgende tabellen viser progresjonen av estimert en repetisjons maksimum (e1RM) fra start til nå.
 
 |Dato      |Knebøy  |Benkpress  |Markløft | Skulderpress |
@@ -58,8 +59,19 @@ Den følgende tabellen viser progresjonen av estimert en repetisjons maksimum (e
 
 Med ord: *Jeg har blitt sterkere*.
 
-Kondisjonsmessig har jeg ikke sett like mye progresjon. Jeg begynte sent med å inkludere kondisjonstrening i øktene mine.
+### Kondisjon
+Kondisjonsmessig har jeg ikke sett like mye progresjon. Jeg begynte sent med å inkludere kondisjonstrening i øktene mine. Følgende tabell tar utgangspunkt i Garmin Connect (min puls/aktivitetsklokke) sin "kondisjonsberegning". 
 
+Kondisjonsberegningen vil si maksimalt oksygenvolum (i milliliter) som man bruker per minutt per kilo med kroppsvekt ved maksimal ytelse. Garminklokka mi beregner dette ved hjelp av puls og treningsdata.
+
+
+|Dato      | Kondisjonstall | Kondisjonsstatus |
+|----------|:--------------:|:----------------:|
+|27.09.21  | 43             |    OK            |
+|14.02.22  | 44             |    Bra           |
+|11.04.22  |              |               |
+
+### Kroppsvekt
 Kroppsvekta mi har også gått opp.
 
 |Dato      | Vekt (kg) |
@@ -68,9 +80,10 @@ Kroppsvekta mi har også gått opp.
 |14.02.22  | 84        |
 |11.04.22  |           |
 
-Fokuset for treningsperioden som har vært var å bli sterkere og å unngå skader. Det har jeg gjort ved å passet på at jeg har spist nok. Kanskje for mye.
 
-Etter å ha nådd 84 kg bestemte jeg meg derfor for å gå ned i vekt i en periode fremover. Jeg har blitt større enn jeg ønsker (rundt magen, spesielt), så jeg fortsetter med det til jeg når 75kg kroppsvekt. Deretter blir fokuset å øke i styrke igjen for å nå målene jeg har satt meg, noe som vil innebære å spise mer og legge på seg igjen.
+Fokuset for treningsperioden til nå har vært å bli sterkere og å unngå skader. Det har jeg gjort ved å passe på at jeg har spist nok.
+
+Etter å ha nådd 84 kg bestemte jeg meg for å gå ned i vekt i en periode fremover. Jeg har blitt større enn jeg ønsker (rundt magen, spesielt), så jeg fortsetter med det til jeg når 75kg kroppsvekt. Deretter blir fokuset å øke i styrke igjen for å nå målene jeg har satt meg, noe som vil innebære å spise mer og legge på seg igjen.
 
 ## Mine ettertanker
 
