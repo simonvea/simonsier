@@ -36,7 +36,7 @@ Den følgende tabellen viser progresjonen av estimert en repetisjons maksimum (e
 |----------|:------:|:---------:|:-------:|:------------:|
 |29.09.21  |  56kg  |  65kg     | 73kg    |  34kg        |
 |31.12.21  |  77kg  |  79kg     | 98kg    |  46kg        |
-|14.03.22  |  84kg  |  87kg     | 115kg   |  56kg        |
+|16.03.22  |  84kg  |  87kg     | 115kg   |  56kg        |
 
 Med ord: *Jeg har blitt sterkere*.
 
