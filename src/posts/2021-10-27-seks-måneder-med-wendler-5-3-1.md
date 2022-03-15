@@ -19,12 +19,11 @@ De første tre månedene fulgte jeg reddit sin [5/3/1 for beginners rutine](http
 
 De neste tre månedene la jeg opp en periodevis trening hvor jeg først trente to sykluser med [Boring But Big (BBB)](https://www.jimwendler.com/blogs/jimwendler-com/101077382-boring-but-big), etterfulgt av en syklus med [5x5 First Set Last](https://thefitness.wiki/5-3-1-primer/). En syklus varier i tre uker. Dette trente jeg fire ganger i uka, hvor en hovedøvelse ble gjort hver treningsøkt.
 
-I tillegg hadde jeg en test uke for å teste styrken mellom hvert bytte av program. Utregningene nedenfor er basert på disse ukene.
-
+I tillegg hadde jeg en testuke for å teste styrken mellom hvert bytte av programvariasjon. Utregningene nedenfor er basert på disse ukene.
 
 ## Resultat
 
-Seks måneder med kontinuerlig trening føles bra!
+Fem måneder med kontinuerlig trening føles bra!
 
 Jeg har absolutt fått trening inn i hverdagen, og jeg trener nå regelmessig minst fire ganger i uka. 
 
@@ -64,7 +63,7 @@ Kroppsvekta mi har også gått opp.
 
 Fokuset for treningsperioden til nå har vært å bli sterkere og å unngå skader. Det har jeg gjort ved å passe på at jeg har spist nok.
 
-Etter å ha nådd 84 kg bestemte jeg meg for å gå ned i vekt i en periode fremover. Jeg har blitt større enn jeg ønsker (rundt magen, spesielt), så jeg fortsetter med det til jeg når 75kg kroppsvekt. Deretter blir fokuset å øke i styrke igjen for å nå målene jeg har satt meg, noe som vil innebære å spise mer og legge på seg igjen.
+Etter å ha nådd 84 kg bestemte jeg meg for å gå ned i vekt i en periode fremover. Jeg har blitt større enn jeg ønsker (rundt magen, spesielt), så jeg fortsetter med det til jeg når 75kg kroppsvekt. Deretter blir fokuset å øke i styrke igjen for å nå målene jeg setter meg, noe som vil innebære å spise mer og legge på seg igjen.
 
 Vektøking er også en grunn til at jeg ser på å få inn mer kondisjonstrening fremover.
 
@@ -72,7 +71,7 @@ Vektøking er også en grunn til at jeg ser på å få inn mer kondisjonstrening
 
 ### Viktigheten med riktig teknikk
 
-Albuesmerte i benk og skullderpress. Knesmerte i knebøy. Ryggsmerte i knebøy og markløft. Alt dette var noe jeg har opplevd underveis. Dette ble fikset gjennom endring og forbedring av teknikk.
+Albuesmerte i benk og skulderpress. Knesmerte i knebøy. Ryggsmerte i knebøy og markløft. Alt dette var noe jeg har opplevd underveis. Dette ble fikset gjennom endring og forbedring av teknikk.
 
 Måten Wendler sitt program er bygget opp på, spesielt med tanke på å starte "for lett" og å øke sakte har gjort det mye lettere å fokusere på teknikk underveis uten at det har gått utover økningen i styrke.
 
@@ -83,7 +82,7 @@ For eksempel så må jeg dra på forskjellige kurs noen helger. Da har det ikke 
 
 Da har det vært helt ok å enten inkludere hovedøvelsen jeg har gått glipp av inn i neste økt, eller bare fortsette. På lang sikt har det ikke så mye å si.
 
-Det som har noe å si er at man fortsetter.
+Det som har noe å si er at man fortsetter med treningen over tid.
 
 ### Treningstid har noe å si (for meg)
 
