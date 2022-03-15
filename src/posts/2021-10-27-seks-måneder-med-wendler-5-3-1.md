@@ -2,8 +2,7 @@
 title: Fra kåråna sofapotet til en aktiv hverdag
 date: 2022-03-15
 description: For fem måneder siden begynte jeg å trene etter et alt for langt
-  korona-opphold. For å prøve noe nytt bestemte jeg meg for å teste Jim Wendler
-  sin 5/3/1 metodikk.
+  korona-opphold. Nå føler jeg meg bedre.
 ---
 ## Mål
 
