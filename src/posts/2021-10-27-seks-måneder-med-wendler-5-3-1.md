@@ -1,29 +1,24 @@
 ---
 title: Seks måneder med Wendler 5/3/1
 date: 2021-10-27
-description: For seks måneder siden begynte jeg å trene etter et alt for langt
+description: For fem måneder siden begynte jeg å trene etter et alt for langt
   korona-opphold. For å prøve noe nytt bestemte jeg meg for å teste Jim Wendler
-  sin 5/3/1 metodikk. Dette er min erfaring etter seks måneder.
+  sin 5/3/1 metodikk. Dette er min erfaring etter fem måneder.
 ---
-## Filosofi
-
 ## Mål
 
-Målet for disse seks månedene har vært
+Målet for disse fem månedene har vært
 - å få trening inn i hverdagen, 
 - bli litt sterkere og,
 - å generelt bli i bedre form.
 
 Ikke akuratt SMARTe mål, men de har funket for meg. 
 
-
 ## Program
 
 De første tre månedene fulgte jeg reddit sin 5/3/1 for beginners rutine. Denne består av å trene tre ganger i uken, hvorav hver dag består av to hovedøvelser og tre forskjellige assistanse-øvelser fordelt på push, pull og single-leg/core.
 
 De neste tre månedene la jeg opp en periodevis trening hvor jeg først trente to sykluser med Boring But Big (BBB), etterfulgt av to sykluser med 5x5 First Set Last. Dette trente jeg fire ganger i uka, hvor en hovedøvelse ble gjort hver trenigsøkt.
-
-
 
 ## Resultat
 
@@ -48,6 +43,12 @@ Kondisjonstrening er egentlig en del av Wendler sitt program. Jeg har ikke fulgt
 Grunnen til at jeg ikke har gjort noe kondisjonstrening har i hovedsak handlet om tid, og at målet mitt i har vært å bli sterkere. 
 
 For å ha god helse er ikke styrktrening nok. Oksygenopptak og et godt hjerte er mer korrelert til god helse enn det styrketrening er. Jeg kommer derfor til å jobbe mer med å få inn det i perioden fremover.
+
+Betyr det at jeg ikke har blitt "i generelt bedre form" for å referere til målet mitt? 
+
+Det er vanskelig å svare på, da "bedre form" er for diffust til å si noe konkret.
+
+Jeg vil likevel si ja. Jeg har trossalt blitt sterkere.
 
 ### Kroppsvekt
 Kroppsvekta mi har også gått opp.
