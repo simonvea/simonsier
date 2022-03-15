@@ -17,7 +17,7 @@ Ikke akuratt SMARTe mål, men de har funket for meg.
 
 De første tre månedene fulgte jeg reddit sin [5/3/1 for beginners rutine](https://thefitness.wiki/routines/5-3-1-for-beginners/). Denne består av å trene tre ganger i uken, hvorav hver dag består av to hovedøvelser og tre forskjellige assistanse-øvelser fordelt på push, pull og single-leg/core.
 
-De neste tre månedene la jeg opp en periodevis trening hvor jeg først trente to sykluser med [Boring But Big (BBB)](https://www.jimwendler.com/blogs/jimwendler-com/101077382-boring-but-big), etterfulgt av to sykluser med [5x5 First Set Last](https://thefitness.wiki/5-3-1-primer/). En syklus varier i tre uker. Dette trente jeg fire ganger i uka, hvor en hovedøvelse ble gjort hver trenigsøkt.
+De neste tre månedene la jeg opp en periodevis trening hvor jeg først trente to sykluser med [Boring But Big (BBB)](https://www.jimwendler.com/blogs/jimwendler-com/101077382-boring-but-big), etterfulgt av en syklus med [5x5 First Set Last](https://thefitness.wiki/5-3-1-primer/). En syklus varier i tre uker. Dette trente jeg fire ganger i uka, hvor en hovedøvelse ble gjort hver treningsøkt.
 
 I tillegg hadde jeg en test uke for å teste styrken mellom hvert bytte av program. Utregningene nedenfor er basert på disse ukene.
 
