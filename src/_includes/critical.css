@@ -225,6 +225,29 @@ article li {
   vertical-align: middle;
 }
 
+.subscribe {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.subscribe__link {
+  color: #8bb8df;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.subscribe__link:hover {
+  text-decoration: underline;
+}
+
+.subscribe__logo {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
 @media only screen and (min-width: 768px) {
   /* For desktop */
   .header {

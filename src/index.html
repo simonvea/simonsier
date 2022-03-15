@@ -2,7 +2,7 @@
 layout: base.njk
 pagination:
   data: collections.post
-  size: 10
+  size: 4
   reverse: true
   alias: posts
 eleventyNavigation:
@@ -15,5 +15,18 @@ postsTitle: Siste poster
 
 <section>
   <h1 class="page__title">{{ title }}</h1>
+
   {% include "posts.njk" %}
+
+  <aside class="subscribe">
+    <a class="subscribe__link" href="/feed.xml"
+      ><img
+        class="subscribe__logo"
+        src="/images/rss_logo.png"
+        alt="RSS logo"
+        width="20px"
+        height="20px"
+      />Abonner</a
+    >
+  </aside>
 </section>

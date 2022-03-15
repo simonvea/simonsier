@@ -9,6 +9,7 @@ const markdownItModifyToken = require('markdown-it-modify-token');
 const markdownItTOC = require('markdown-it-table-of-contents');
 const markdownItAnchor = require('markdown-it-anchor');
 const htmlmin = require('html-minifier');
+const pluginRss = require('@11ty/eleventy-plugin-rss');
 // const pluginPWA = require("eleventy-plugin-pwa"); currently not needed
 
 moment.locale('nb');
@@ -17,6 +18,7 @@ module.exports = function (eleventyConfig) {
   // add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginRss);
   // eleventyConfig.addPlugin(pluginPWA);
 
   // add passThroughs
