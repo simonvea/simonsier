@@ -98,4 +98,4 @@ Videre så har jeg funnet ut at jeg er nødt til å trene før jobb. Etter jobb 
 
 ## De neste seks månenedene
 
-Planen for de neste seks månedene er å kvitte meg med litt kroppsfett, før jeg starter med å bygge mer for å bli sterk. Konkrete mål kommer!
+Planen for de neste seks månedene er å kvitte meg med litt kroppsfett, før jeg starter med å bygge mer for å bli sterk og springe mer for å få bedre kondis. Konkrete mål kommer!
