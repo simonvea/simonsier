@@ -67,7 +67,7 @@ Fokuset for treningsperioden til nå har vært å bli sterkere og å unngå skad
 
 Etter å ha nådd 84 kg bestemte jeg meg for å gå ned i vekt i en periode fremover. Jeg har blitt større enn jeg ønsker (rundt magen, spesielt), så jeg fortsetter med det til jeg når 75kg kroppsvekt. Deretter blir fokuset å øke i styrke igjen for å nå målene jeg har satt meg, noe som vil innebære å spise mer og legge på seg igjen.
 
-Vektøking er også en grunn til at jeg ser på å få inn per kondisjonstrening fremover.
+Vektøking er også en grunn til at jeg ser på å få inn mer kondisjonstrening fremover.
 
 ## Mine ettertanker
 
