@@ -1,5 +1,5 @@
 ---
-title: Fra Kåråna sofapotet til en aktiv hverdag
+title: Fra kåråna sofapotet til en aktiv hverdag
 date: 2022-03-15
 description: For fem måneder siden begynte jeg å trene etter et alt for langt
   korona-opphold. For å prøve noe nytt bestemte jeg meg for å teste Jim Wendler
