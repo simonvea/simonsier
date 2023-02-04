@@ -1,6 +1,4 @@
-const fs = require('fs');
 const CleanCSS = require('clean-css');
-const moment = require('moment');
 const { minify } = require('terser');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
@@ -11,8 +9,6 @@ const markdownItAnchor = require('markdown-it-anchor');
 const htmlmin = require('html-minifier');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 // const pluginPWA = require("eleventy-plugin-pwa"); currently not needed
-
-moment.locale('nb');
 
 module.exports = function (eleventyConfig) {
   // add plugins
@@ -33,11 +29,15 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter('dateIso', (date) => {
-    return moment(date).toISOString();
+    return date.toISOString();
   });
 
   eleventyConfig.addFilter('dateReadable', (date) => {
-    return moment(date).format('LL'); // E.g. May 31, 2019
+    return date.toLocaleDateString('nb-NO', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    });
   });
 
   eleventyConfig.addNunjucksAsyncFilter(
