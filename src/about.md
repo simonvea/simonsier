@@ -22,6 +22,5 @@ Jeg interesserer meg for gode dialoger og liker å lage ting ved hjelp av kode.
 Jeg:
 
 - Er utdannet filosof med mastergrad i filosofi fra UiO
-- Videreutdanner meg som filosofisk praktiker gjennom [Norsk Selskap for Filosofisk Praksis](https://www.nsfp.no)
-- Jobber som fullstackutvikler i [fjellsport.no](https://www.fjellsport.no)
+- Jobber som dev lead og fullstack utvikler hos [fjellsport.no](https://www.fjellsport.no)
 - Deler mine hobbyprosjekter på [GitHub](https://www.github.com/simonvea)
