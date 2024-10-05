@@ -8,6 +8,7 @@ const markdownItTOC = require('markdown-it-table-of-contents');
 const markdownItAnchor = require('markdown-it-anchor');
 const htmlmin = require('html-minifier');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
+const esbuild = require('esbuild');
 // const pluginPWA = require("eleventy-plugin-pwa"); currently not needed
 
 module.exports = function (eleventyConfig) {
@@ -94,6 +95,25 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // Special handling for jsx. Mostly used for customising CMS
+
+  eleventyConfig.addExtension('jsx', {
+    outputFileExtension: 'js',
+    compile: async (content, path) => {
+      return async () => {
+        let output = await esbuild.build({
+          target: 'es2020',
+          entryPoints: [path],
+          minify: true,
+          bundle: true,
+          write: false,
+        });
+
+        return output.outputFiles[0].text;
+      };
+    },
+  });
+
   //set build settings
   return {
     dir: {
@@ -102,7 +122,7 @@ module.exports = function (eleventyConfig) {
       layouts: '_layouts',
       output: '_site',
     },
-    templateFormats: ['html', 'njk', 'md', '11ty.js'],
+    templateFormats: ['html', 'njk', 'md', '11ty.js', 'jsx'],
     htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
     passthroughFileCopy: true,
