@@ -35,7 +35,7 @@ Hver økt følger samme oppsett:
 
 Den generelle oppvarmingen vil bestå av:
 
-- 2-3 solhilsener med utfall for å myke opp kroppen
+- 2-3 solhilsener med utfall for å myke og varme opp kroppen
 - 2 x 8-12 reps med push-ups
 - 2 x 8-12 reps med kossack squats
 
@@ -74,7 +74,7 @@ Målet med denne økta er å bli sterkere og forbedre ferdighetene mine.
 
 På Sørmarka Arena er det ikke mulighet for å trene styrke utenfor veggen, så jeg legger til to sett med "larven" som en del av oppvarmingen. Det blir ingen styrkeøkt etter buldringen.
 
-![Bilde av øvelsen larven](https://stock.adobe.com/no/images/woman-doing-inchworm-exercise-flat-vector-illustration-isolated-on-white-background/485642541 'Bilde av øvelsen larven')
+![Bilde av øvelsen larven](/images/larven.jpg 'Bilde av øvelsen larven')
 
 ### Fredager - Styrkeøkt
 
