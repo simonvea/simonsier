@@ -203,14 +203,31 @@ a:hover {
 
 .article img {
   display: block;
-  margin: auto;
-  width: 100%;
+  margin: 40px auto;
+  max-width: 100%;
 }
 
 .article ul,
 article li {
   font-size: 1.125rem;
   line-height: 1.5625rem;
+}
+
+.article table,
+th,
+td {
+  border: 1px solid;
+  padding: 8px;
+}
+
+.article table {
+  border-collapse: collapse;
+}
+
+.article__footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .about__certifications {

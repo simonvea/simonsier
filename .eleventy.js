@@ -56,6 +56,9 @@ module.exports = function (eleventyConfig) {
   );
 
   const markdownLibrary = markdownIt({
+    html: true,
+
+    breaks: true,
     modifyToken: function (token, env) {
       // see API https://markdown-it.github.io/markdown-it/#Token
       // token will also have an attrObj property added for convenience
