@@ -21,7 +21,7 @@
     "@11ty/eleventy-plugin-webc": "^0.11.2",
     "clean-css": "^5.3.3",
     "eleventy-plugin-pwa": "^1.0.8",
-    "esbuild": "^0.24.0",
+    "esbuild": "^0.25.0",
     "html-minifier": "^4.0.0",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
