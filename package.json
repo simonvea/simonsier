@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy",
+    "build": "npx @11ty/eleventy",
+    "build:prod": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
     "cms": "npx decap-server"
