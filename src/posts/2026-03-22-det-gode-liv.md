@@ -27,7 +27,7 @@ En del av tilnærmingen er å bruke [Claude](https://claude.ai/) til å grave i 
 Basert på konklusjonen fra Claude deep research så har jeg kommet frem til at jeg skal jobbe med fire ting parallelt:
 
 - **Sosial arkitektur:** bygge flere og tettere relasjoner, strukturelt
-- **Fysisk kapasitet:** bevegelse med retning, ikke bare aktivitet
+- **Fysisk kapasitet:** bevegelse med retning, ikke bare aktivitet uten mål
 - **Kosthold:** tettere på norske kostråd, mer batch-matlaging, mindre brød-og-ost-til-middag
 - **Kognitiv reserve:** et aktivt læringsprosjekt jeg faktisk gleder meg til
 
