@@ -1,0 +1,1220 @@
+---
+layout: base.njk
+title: Treningsprogram
+description: Ukentlig treningsprogram
+---
+
+<style>
+  .tp {
+    padding: 1rem 0;
+  }
+
+  /* Overview table */
+  .overview-table {
+    margin-bottom: 24px;
+    overflow-x: auto;
+  }
+  .overview-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .overview-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(224, 224, 224, 0.38);
+    padding: 0 12px 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .overview-table td {
+    padding: 9px 12px 9px 0;
+    color: rgba(224, 224, 224, 0.75);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    vertical-align: middle;
+  }
+  .overview-table tr:last-child td {
+    border-bottom: none;
+  }
+  .day-cell {
+    font-weight: 600;
+    color: rgba(224, 224, 224, 0.87) !important;
+    white-space: nowrap;
+  }
+  .load-pill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .load-high {
+    background: rgba(224, 112, 112, 0.12);
+    color: #e07878;
+  }
+  .load-mod {
+    background: rgba(254, 219, 139, 0.12);
+    color: #fedb8b;
+  }
+  .load-low {
+    background: rgba(126, 207, 158, 0.12);
+    color: #7ecf9e;
+  }
+  .load-none {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(224, 224, 224, 0.45);
+  }
+
+  /* Tabs */
+  .day-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .dtab {
+    padding: 7px 13px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: rgba(224, 224, 224, 0.55);
+    background: rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
+    transition:
+      background 0.15s,
+      color 0.15s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  .dtab:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(224, 224, 224, 0.87);
+  }
+  .dtab.active {
+    background: rgba(139, 184, 223, 0.15);
+    color: #8bb8df;
+    border-color: rgba(139, 184, 223, 0.25);
+  }
+
+  /* Day cards */
+  .day-card {
+    display: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .day-card.show {
+    display: block;
+  }
+  .day-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(224, 224, 224, 0.87);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .day-meta {
+    font-size: 12px;
+    color: rgba(224, 224, 224, 0.55);
+    margin-bottom: 16px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .b-office {
+    background: rgba(139, 184, 223, 0.12);
+    color: #8bb8df;
+  }
+  .b-home {
+    background: rgba(126, 207, 158, 0.12);
+    color: #7ecf9e;
+  }
+  .b-climb {
+    background: rgba(254, 219, 139, 0.12);
+    color: #fedb8b;
+  }
+  .b-rest {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(224, 224, 224, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .b-hiit {
+    background: rgba(224, 112, 112, 0.12);
+    color: #e07878;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 18px;
+  }
+  .sec-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(224, 224, 224, 0.38);
+    margin-bottom: 8px;
+  }
+
+  /* Exercises */
+  .exercise {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: start;
+  }
+  .exercise:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .ex-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(224, 224, 224, 0.87);
+    line-height: 1.3;
+  }
+  .ex-sub {
+    font-size: 13px;
+    color: rgba(224, 224, 224, 0.55);
+    margin-top: 3px;
+    line-height: 1.55;
+  }
+  .ex-sets {
+    font-size: 12px;
+    color: #8bb8df;
+    font-weight: 500;
+    text-align: right;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+  .shoulder-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(254, 219, 139, 0.12);
+    color: #fedb8b;
+    margin-left: 4px;
+    font-weight: 500;
+  }
+  .rehab-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(126, 207, 158, 0.12);
+    color: #7ecf9e;
+    margin-left: 4px;
+    font-weight: 500;
+  }
+
+  /* Notes */
+  .note-box {
+    font-size: 13px;
+    color: rgba(224, 224, 224, 0.55);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    padding: 11px 13px;
+    margin-top: 14px;
+    line-height: 1.6;
+    border-left: 2px solid rgba(255, 255, 255, 0.12);
+  }
+  .note-box strong {
+    font-weight: 600;
+    color: rgba(224, 224, 224, 0.8);
+  }
+
+  /* Load bar */
+  .load-bar {
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+  }
+  .load-fill {
+    height: 100%;
+    border-radius: 2px;
+  }
+  .load-label {
+    font-size: 11px;
+    color: rgba(224, 224, 224, 0.38);
+    margin-top: 4px;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 767px) {
+    .col-loc,
+    .col-dur {
+      display: none;
+    }
+    .overview-table th,
+    .overview-table td {
+      padding-right: 8px;
+    }
+    .day-card {
+      padding: 14px 14px;
+      border-radius: 8px;
+    }
+    .day-title {
+      font-size: 15px;
+    }
+    /* Stack sets below exercise name on mobile */
+    .exercise {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+    .ex-sets {
+      text-align: left;
+      color: rgba(224, 224, 224, 0.4);
+      font-size: 11px;
+      font-weight: 400;
+    }
+    .dtab {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+    .note-box {
+      font-size: 12px;
+    }
+  }
+</style>
+
+<div class="tp">
+  <!-- Overview table -->
+  <div class="overview-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Dag</th>
+          <th>Økt</th>
+          <th class="col-loc">Sted</th>
+          <th class="col-dur">Varighet</th>
+          <th>Skulder</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day-cell">Man</td>
+          <td>Markløft + pull + kabel-rehab</td>
+          <td class="col-loc">Kontorgym</td>
+          <td class="col-dur">60 min</td>
+          <td><span class="load-pill load-mod">Moderat</span></td>
+        </tr>
+        <tr>
+          <td class="day-cell">Tir</td>
+          <td>Knebøy + underkropp</td>
+          <td class="col-loc">Kontor / hjemme</td>
+          <td class="col-dur">40–45 min</td>
+          <td><span class="load-pill load-none">Minimal</span></td>
+        </tr>
+        <tr>
+          <td class="day-cell">Ons</td>
+          <td>Kabel-rehab + sone 2</td>
+          <td class="col-loc">Kontor + skog</td>
+          <td class="col-dur">20 + 35 min</td>
+          <td><span class="load-pill load-low">Lav</span></td>
+        </tr>
+        <tr>
+          <td class="day-cell">Tor</td>
+          <td>Buldring + push/core-finisher</td>
+          <td class="col-loc">Klatresenter</td>
+          <td class="col-dur">2t + 10 min</td>
+          <td><span class="load-pill load-high">Høy</span></td>
+        </tr>
+        <tr>
+          <td class="day-cell">Fre</td>
+          <td>Frontknebøy + press + kabel-rehab</td>
+          <td class="col-loc">Kontorgym</td>
+          <td class="col-dur">60 min</td>
+          <td><span class="load-pill load-mod">Moderat</span></td>
+        </tr>
+        <tr>
+          <td class="day-cell">Lør</td>
+          <td>4×4 HIIT</td>
+          <td class="col-loc">Skog</td>
+          <td class="col-dur">35 min</td>
+          <td><span class="load-pill load-none">Ubetydelig</span></td>
+        </tr>
+        <tr>
+          <td class="day-cell">Søn</td>
+          <td>Buldring + kun core</td>
+          <td class="col-loc">Klatresenter</td>
+          <td class="col-dur">2t + 8 min</td>
+          <td><span class="load-pill load-high">Høy</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tabs -->
+  <div class="day-tabs">
+    <div class="dtab active" onclick="showDay('mon', this)">Man</div>
+    <div class="dtab" onclick="showDay('tue', this)">Tir</div>
+    <div class="dtab" onclick="showDay('wed', this)">Ons</div>
+    <div class="dtab" onclick="showDay('thu', this)">Tor</div>
+    <div class="dtab" onclick="showDay('fri', this)">Fre</div>
+    <div class="dtab" onclick="showDay('sat', this)">Lør</div>
+    <div class="dtab" onclick="showDay('sun', this)">Søn</div>
+    <div class="dtab" onclick="showDay('prog', this)">Progresjon</div>
+    <div class="dtab" onclick="showDay('notes', this)">Prinsipper</div>
+  </div>
+
+  <!-- MANDAG -->
+  <div id="mon" class="day-card show">
+    <div class="day-title">Mandag — Markløft + pull + rehab</div>
+    <div class="day-meta">
+      <span class="badge b-office">Kontorgym</span>
+      <span class="badge b-home">Hundeuke: møt opp spesifikt, ~60 min</span>
+      <span style="font-size: 11px; color: rgba(224, 224, 224, 0.38)"
+        >48t+ etter torsdagsbuldring — skulderen er klar</span
+      >
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Generell oppvarming — 5 min</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Romaskin eller tilsvarende</div>
+          <div class="ex-sub">
+            Lett tempo, full bevegelsesutslag. Varmer opp og øker
+            kroppstemperaturen før leddspesifikt arbeid.
+          </div>
+        </div>
+        <div class="ex-sets">5 min</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">
+        Leddspesifikk oppvarming — rehab
+        <span class="rehab-tag">3× denne uken</span>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Kabel intern rotasjon <span class="shoulder-tag">rehab</span>
+          </div>
+          <div class="ex-sub">
+            Albue 90°, arm langs siden. Kontrollert tempo. Lett belastning —
+            dette er rehab, ikke styrkearbeid. Kabelen gir presis
+            belastningsstyring som båndet ikke klarer.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 12–15</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Kabel ekstern rotasjon <span class="shoulder-tag">rehab</span>
+          </div>
+          <div class="ex-sub">
+            Samme oppsett, motsatt retning. Ikke la skulderen rulle fremover i
+            ytterposisjon.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 12–15</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Strikkeøvelse (fysiospesifikk)</div>
+          <div class="ex-sub">
+            Din tredje fysiøvelse — fortsett som foreskrevet. Denne beholdes
+            uavhengig av andre endringer.
+          </div>
+        </div>
+        <div class="ex-sets">Som foreskrevet</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Primærøvelse — hinge</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Konvensjonell markløft</div>
+          <div class="ex-sub">
+            Jobber mot 152 kg (2×KV). Start konservativt — etabler ekte 5-reps
+            arbeidsbelastning i uke 1. Øk med 2,5 kg per økt når alle 5 reps er
+            rene. <strong>Ingen skulderinvolvering.</strong>
+          </div>
+        </div>
+        <div class="ex-sets">4 × 5</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Tilleggsøvelse — pull</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Kabel face pull</div>
+          <div class="ex-sub">
+            Tau-feste, trekk til pannen med albuene høyt. Trener bakre deltoider
+            + eksternrotatorer. En av de mest skulderbeskyttende øvelsene for
+            klatrere.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 15</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Pull-ups</div>
+          <div class="ex-sub">
+            Stopp 1–2 reps før utmattelse. Skulderen skal kjennes belastet men
+            ikke anstrengt — hvis skulderen klager etter markløftøkten, reduser
+            bevegelsesutslag eller hopp over denne uken.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 6–7</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Hundeuke:</strong> La hunden være hjemme i ~60 min. Gjennomfør alt
+      i ett — ikke del opp i to besøk. Mandag er den beste kontorgym-dagen i
+      hundeuker fordi skulderen har hatt hele helgen uten styrkearbeid
+      (søndagsbuldring er høy belastning, men ikke styrketreningsbelastning).
+    </div>
+    <div class="load-bar">
+      <div class="load-fill" style="width: 65%; background: #fedb8b"></div>
+    </div>
+    <div class="load-label">
+      Skulderbelastning: moderat (kun rehab, ingen press)
+    </div>
+  </div>
+
+  <!-- TIRSDAG -->
+  <div id="tue" class="day-card">
+    <div class="day-title">Tirsdag — Kun underkropp</div>
+    <div class="day-meta">
+      <span class="badge b-office">Kontorgym</span>
+      <span class="badge b-home"
+        >Hundeuke: kort besøk ~45 min, eller hjemme hvis stang ikke trengs</span
+      >
+      <span style="font-size: 11px; color: rgba(224, 224, 224, 0.38)"
+        >48t etter søndagsbuldring — skulderen bevisst uten belastning i
+        dag</span
+      >
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Primærøvelse — knebøy</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Knebøy med stang</div>
+          <div class="ex-sub">
+            Jobber mot 114 kg (1,5×KV). Lavt eller høyt grep — velg ett og hold
+            deg til det. <strong>Merk:</strong> stangen på trapezius belaster
+            skulderen i mild intern rotasjon. Hvis dette gir ubehag, bytt til
+            frontknebøy eller goblet squat til skulderen er bedre.
+          </div>
+        </div>
+        <div class="ex-sets">4 × 5</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">
+        Tilleggsøvelse — underkropp, null skulderbelastning
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Bulgarske utfall</div>
+          <div class="ex-sub">
+            Bakfot hevet på benk, manualer langs siden. Etbeins styrke er
+            direkte relevant for buldring-fotarbeid og drop-knee-posisjoner.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 8 hver</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Hip thrust</div>
+          <div class="ex-sub">
+            Glutedominant. Korrigerer den pull-dominante ubalansen fra klatring.
+            Stangen over hofter — ingen skulderbelastning.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 10</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Hengende beinhev</div>
+          <div class="ex-sub">
+            Core. Passivt heng — ikke aktiv pulling. Hvis skulderen protesterer,
+            bytt til liggende beinhev.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 10–12</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Hundeuke:</strong> Dette er ukens korteste økt — 40–45 min inn og
+      ut. Kun underkropp betyr null beslutninger om skulder, null
+      rehab-kabelarbeid (det er mandag/fredag/onsdag). Hvis det føles
+      overdrevent å reise til kontoret for én underkroppsøkt i hundeuker, kan
+      denne gjøres hjemme med manualer (goblet squat + utfall + hip thrust med
+      manual) — ikke ideelt for knebøy-progresjonen, men akseptabelt i hundeuker
+      når hundens alene-tid er begrenset.
+    </div>
+    <div class="load-bar">
+      <div class="load-fill" style="width: 15%; background: #7ecf9e"></div>
+    </div>
+    <div class="load-label">Skulderbelastning: minimal</div>
+  </div>
+
+  <!-- ONSDAG -->
+  <div id="wed" class="day-card">
+    <div class="day-title">Onsdag — Kun rehab + sone 2</div>
+    <div class="day-meta">
+      <span class="badge b-office">Kontorgym (kabel-rehab)</span>
+      <span class="badge b-rest"
+        >Hundeuke: elastisk bånd hjemme er akseptabelt</span
+      >
+      <span style="font-size: 11px; color: rgba(224, 224, 224, 0.38)"
+        >Laveste skulderbelastningsdag — rehab i isolasjon er mest effektivt
+        her</span
+      >
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Kun rehab — 15–20 min på kontorgym</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Kabel intern rotasjon <span class="shoulder-tag">rehab</span>
+          </div>
+          <div class="ex-sub">
+            Tredje ukentlige rehabøkt. Kan gjøres før eller etter jobb. Hvis
+            hundeuke og kontorgym gir for mye hunde-alene-tid, er strikkeøvelse
+            hjemme akseptabelt kun for onsdag — mandag og fredag MÅ være kabel.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 12–15</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Kabel ekstern rotasjon <span class="shoulder-tag">rehab</span>
+          </div>
+          <div class="ex-sub">Samme som mandag.</div>
+        </div>
+        <div class="ex-sets">3 × 12–15</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Strikkeøvelse (fysio)</div>
+          <div class="ex-sub">Tredje gang denne uken.</div>
+        </div>
+        <div class="ex-sets">Som foreskrevet</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Kondisjon — sone 2</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Rolig jogg eller sykkeltur</div>
+          <div class="ex-sub">
+            Ikke-hundeuke: sykkel til/fra jobb (uten motor), begge veier eller
+            kun morgen. Hundeuke: 30–40 min lett jogg i skogen, hunden kan bli
+            med. Mål-HR: ~130–145 slag/min. Konversasjonstempo.
+          </div>
+        </div>
+        <div class="ex-sets">30–40 min</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      Onsdag er bevisst lett. Den ligger mellom tirsdagens tunge underkroppsøkt
+      og torsdagens buldring. Målet er aktiv restitusjon og gjennomføring av
+      tredje rehabøkt — ikke å akkumulere tretthet. Hvis du er sliten, blir
+      løpeturen en tur. Rehaben skjer alltid.
+    </div>
+    <div class="load-bar">
+      <div class="load-fill" style="width: 20%; background: #7ecf9e"></div>
+    </div>
+    <div class="load-label">Skulderbelastning: lav (kun rehab)</div>
+  </div>
+
+  <!-- TORSDAG -->
+  <div id="thu" class="day-card">
+    <div class="day-title">Torsdag — Buldring + antagonistfinisher</div>
+    <div class="day-meta">
+      <span class="badge b-climb">Klatresenter 18:00</span>
+      <span style="font-size: 11px; color: rgba(224, 224, 224, 0.38)"
+        >Ukens faste anker — alt annet legges rundt dette</span
+      >
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Hovedøkt</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Buldring — 1,5 til 2 timer</div>
+          <div class="ex-sub">
+            Varm opp ordentlig — 10 min lett traversering før du prøver noen
+            vanskelige problemer. Med en skulder under rehabilitering er
+            oppvarmingen viktigere enn ellers.
+          </div>
+        </div>
+        <div class="ex-sets">1,5–2 t</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">
+        Antagonistfinisher etter klatring — kun 10 min
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Armhevinger</div>
+          <div class="ex-sub">
+            Klatring er nesten utelukkende pull. Armhevinger gjenoppretter
+            push-pull-balansen og beskytter skulderen på lang sikt. Standard
+            eller på ringer hvis tilgjengelig. Stopp hvis skulderen kliper.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 10–15</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Dead bug</div>
+          <div class="ex-sub">
+            Corestabilitet uten skulderbelastning. Langsom, kontrollert, motsatt
+            arm/ben-ekstensjon. Bedre enn sit-ups for klatrespesifikk core.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 8 hver</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Ingen styrketrening etter torsdagsbuldring.</strong> Det
+      opprinnelige programmet hadde pull-ups etter klatring — dette legger
+      pull-belastning til en allerede belastet økt og øker
+      overbelastningsrisikoen. Antagonistfinisheren (push + core kun) er riktig
+      tilnærming: den tar 10 minutter og adresserer direkte muskelubalansen som
+      forårsaker rotatorcuff-skader hos klatrere. Ingen skulderpress, ingen
+      overhead-arbeid etter klatring.
+    </div>
+    <div class="load-bar">
+      <div class="load-fill" style="width: 90%; background: #e07878"></div>
+    </div>
+    <div class="load-label">Skulderbelastning: høy (buldring)</div>
+  </div>
+
+  <!-- FREDAG -->
+  <div id="fri" class="day-card">
+    <div class="day-title">Fredag — Frontknebøy + press + rehab</div>
+    <div class="day-meta">
+      <span class="badge b-office">Kontorgym</span>
+      <span style="font-size: 11px; color: rgba(224, 224, 224, 0.38)"
+        >24t etter torsdagsbuldring — skulderen har hvilt over natten. 48t før
+        søndagsbuldring.</span
+      >
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Generell oppvarming — 5 min</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Romaskin eller tilsvarende</div>
+          <div class="ex-sub">
+            Samme som mandag. Varmer opp skulderen før kabelrehab.
+          </div>
+        </div>
+        <div class="ex-sets">5 min</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Leddspesifikk oppvarming — rehab</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Kabel intern + ekstern rotasjon
+            <span class="shoulder-tag">rehab</span>
+          </div>
+          <div class="ex-sub">
+            Andre kabeløkt denne uken. Gjør dette mens skulderen er frisk og
+            fokuset er på teknikk, ikke utmattet av løfting.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 12–15 hver</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Strikkeøvelse (fysio)</div>
+        </div>
+        <div class="ex-sets">Som foreskrevet</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Primærøvelse — knebøy</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Frontknebøy</div>
+          <div class="ex-sub">
+            Kryss-armgrep hvis nødvendig, hæler hevet hvis mobiliteten krever
+            det. Bedre for buldring-overføring enn knebøy med stang
+            (quadriceps-dominert, oppreist overkropp). Ingen skulderbelastning
+            fra stangposisjon. Samme 4×5-progresjon som tirsdag — øk med 2,5 kg
+            per økt når alle sett er rene.
+          </div>
+        </div>
+        <div class="ex-sets">4 × 5</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Press — skulder progresseres forsiktig</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Skulderpress med manualer
+            <span class="shoulder-tag">lett / fysio-godkjent</span>
+          </div>
+          <div class="ex-sub">
+            Som fysio progresserer dette. Manualer foretrekkes fremfor stang —
+            de lar skulderen finne sin egen trygge bane. Stopp ved første tegn
+            til kliper. Dette er rehab forkledd som styrke, ikke et maks-effort
+            sett. Øk belastning kun når fysio gir grønt lys.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 10–12 (lett)</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Kabelbrystpress (eller skrå manualbenkpress)
+          </div>
+          <div class="ex-sub">
+            Horisontal push — lavere skulderbelastning enn overhead. God
+            antagonist til klatringens pulling. Bruk hvis overhead press kjennes
+            ubehagelig den dagen.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 10</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>48 timer før søndagsbuldring</strong> — hold skulder-pressvolum
+      moderat. Hvis økten går bra og skulderen kjennes god, motstå fristelsen
+      til å legge til et sett. Søndagsbuldringsøkten er viktigere for den totale
+      treningen enn et ekstra pressett på fredag.
+    </div>
+    <div class="load-bar">
+      <div class="load-fill" style="width: 55%; background: #fedb8b"></div>
+    </div>
+    <div class="load-label">
+      Skulderbelastning: moderat (rehab + lett press)
+    </div>
+  </div>
+
+  <!-- LØRDAG -->
+  <div id="sat" class="day-card">
+    <div class="day-title">Lørdag — 4×4 HIIT</div>
+    <div class="day-meta">
+      <span class="badge b-hiit">Skog, 09:00</span>
+      <span style="font-size: 11px; color: rgba(224, 224, 224, 0.38)"
+        >Primær VO₂ maks-stimulus. Hunden kan bli med på oppvarmingsjogg i
+        hundeuker.</span
+      >
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Protokoll</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Oppvarmingsjogg</div>
+          <div class="ex-sub">
+            Lett tempo, flat bakke. Få HR til ~120 slag/min. Hunden kan bli med
+            for denne delen i hundeuker.
+          </div>
+        </div>
+        <div class="ex-sets">10 min</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">4 × 4 min intervaller</div>
+          <div class="ex-sub">
+            Mål 85–95 % av maks-HR (~160–175 slag/min for deg på 37). Bruk
+            bakkene — de tvinger hjertefrekvensen opp uten å kreve banefart. Kan
+            ikke holde en samtale under intervallene. 3 min lett jogg mellom
+            hver.
+          </div>
+        </div>
+        <div class="ex-sets">4 × 4 / 3 min</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Nedjogg</div>
+        </div>
+        <div class="ex-sets">5 min</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      Total tid: ~35 min. Dette er den primære mekanismen for å løfte VO₂ maks
+      fra 48 til 50+. Forvent målbar fremgang etter 8–12 uker med konsekvente
+      ukentlige økter. Skogsbakkene utenfor leiligheten din er ideelle — ingen
+      reise nødvendig, naturlig intervalstruktur i oppoverbakkene.
+    </div>
+    <div class="load-bar">
+      <div class="load-fill" style="width: 10%; background: #7ecf9e"></div>
+    </div>
+    <div class="load-label">Skulderbelastning: ubetydelig (kun løping)</div>
+  </div>
+
+  <!-- SØNDAG -->
+  <div id="sun" class="day-card">
+    <div class="day-title">Søndag — Buldring + kun core</div>
+    <div class="day-meta">
+      <span class="badge b-climb">Klatresenter 18:00</span>
+      <span style="font-size: 11px; color: rgba(224, 224, 224, 0.38)"
+        >Batch cook 15:30 før avreise. Aldri skulderpress — noensinne.</span
+      >
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Hovedøkt</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Buldring — 1,5 til 2 timer</div>
+          <div class="ex-sub">
+            Samme oppvarmingsprotokoll som torsdag. Søndag er ukens andre
+            høy-skulder-belastningsøkt — respekter dette. Ikke prøv å gjøre
+            søndagsøkten "hardere" enn torsdagsøkten for å kompensere for noe.
+          </div>
+        </div>
+        <div class="ex-sets">1,5–2 t</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Etter klatring — kun core, 8 min</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Hengende beinhev</div>
+          <div class="ex-sub">
+            Passivt heng — ikke aktiv pulling. Hvis skulderen er utmattet, bytt
+            til liggende beinhev. Kun corearbeid.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 10</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Hollow body hold</div>
+          <div class="ex-sub">
+            Ligg på ryggen, armer overhead, løft skuldre og ben. 20–30 sek
+            holds. Null skulderleddsbelastning.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 20–30 sek</div>
+      </div>
+    </div>
+
+    <div class="load-bar">
+      <div class="load-fill" style="width: 90%; background: #e07878"></div>
+    </div>
+    <div class="load-label">
+      Skulderbelastning: høy (buldring) — ingen ekstra belastning lagt til
+    </div>
+  </div>
+
+  <!-- PROGRESJON -->
+  <div id="prog" class="day-card">
+    <div class="day-title">Progresjonsskjema</div>
+    <div class="day-meta">
+      <span class="badge b-office">Fase 1: nå → fysio-klarering for IR</span>
+      <span class="badge b-home">Fase 2: etter klarering</span>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Markløft — mål 152 kg</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Uke 1: etabler arbeidsbelastning</div>
+          <div class="ex-sub">
+            Finn en vekt du kan gjøre 5 rene reps med — sannsynligvis 60–80 kg
+            gitt ingen nylig baseline. Dette er ditt utgangspunkt, ikke en
+            egotest.
+          </div>
+        </div>
+        <div class="ex-sets">4 × 5</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Ukentlig progresjon</div>
+          <div class="ex-sub">
+            Legg til 2,5 kg per økt når alle 4 sett er fullført rent. Når du
+            stagnerer, gå ned til 3 × 5 og deload 10 % før du fortsetter.
+          </div>
+        </div>
+        <div class="ex-sets">+2,5 kg/økt</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Milepælsjekk</div>
+          <div class="ex-sub">
+            Test 1RM (eller estimert fra 3-reps maks) hvert 8. uke. Ved 76 kg
+            kroppsvekt er 152 kg = 2×KV — et meningsfullt men oppnåelig mål over
+            12–18 måneder fra ny start.
+          </div>
+        </div>
+        <div class="ex-sets">Hvert 8. uke</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Knebøy — mål 114 kg</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Uke 1: etabler arbeidsbelastning</div>
+          <div class="ex-sub">
+            Sannsynligvis 50–70 kg. Stangposisjon kan begrenses av skulder —
+            frontknebøy er backupen og er trolig bedre for buldring-overføring
+            uansett (quadriceps-dominert, oppreist overkropp).
+          </div>
+        </div>
+        <div class="ex-sets">4 × 5</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Ukentlig progresjon</div>
+          <div class="ex-sub">
+            Legg til 2,5 kg per økt. To knebøy-økter per uke (tir + fre) betyr
+            raskere fremgang enn én per uke. Når du stagnerer, legg inn en
+            pause-knebøy-variasjon før deload.
+          </div>
+        </div>
+        <div class="ex-sets">+2,5 kg/økt</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Skulderpress — fysio-styrt progresjon</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Fase 1 (nå)</div>
+          <div class="ex-sub">
+            Kun manualer. Kun lett vekt. 3 × 10–12. Øk belastning kun på fysios
+            instruksjon, ikke på følelse.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 10–12 lett</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Fase 2 (når IR er smertefri)</div>
+          <div class="ex-sub">
+            Introduser stang-OHP med lett vekt. Behold manualversjonen som
+            primær i ytterligere 4–6 uker før stangen belastes meningsfullt.
+          </div>
+        </div>
+        <div class="ex-sets">Avklares med fysio</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Rehab — overgang mot vedlikehold</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Nåværende fase (50 % restituert)</div>
+          <div class="ex-sub">
+            3 × 12–15 kabelrotasjoner man/ons/fre. Dette er den terapeutiske
+            dosen fysio jobber ut fra.
+          </div>
+        </div>
+        <div class="ex-sets">3 × 12–15</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Ved ~80 % restitusjon</div>
+          <div class="ex-sub">
+            Reduser kabel-rehab til 2× per uke (man + fre). Onsdag blir full
+            hvile eller kun sone 2-dag. Face pulls og rows fortsetter på
+            ubestemt tid — de er nå vedlikehold, ikke rehab.
+          </div>
+        </div>
+        <div class="ex-sets">Ned til 2×/uke</div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Ved full klarering</div>
+          <div class="ex-sub">
+            Kabelrotasjoner blir 2 sett, 2× per uke, permanent. De fungerer som
+            skadeforebygging fra dette punktet. Fjern dem aldri fullt —
+            skulderinfeksjoner er den #1 langsiktige risikoen for klatrere.
+          </div>
+        </div>
+        <div class="ex-sets">Permanent vedlikehold</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINSIPPER -->
+  <div id="notes" class="day-card">
+    <div class="day-title">Designprinsipper og regler</div>
+
+    <div class="section">
+      <div class="sec-label">Skulderreglene</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Ingen overhead press innen 48t etter buldring
+          </div>
+          <div class="ex-sub">
+            Fredagspress → søndagsklatring: 48t gap. Torsdagsklatring →
+            mandagsløft: 72t gap. Disse bufferne beskytter senene mot akkumulert
+            belastning.
+          </div>
+        </div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Smerte er et stoppsignal, ikke et push-through-signal
+          </div>
+          <div class="ex-sub">
+            Skarp eller klipende følelse under noen øvelse: stopp den øvelsen,
+            noter det, fortell fysio på neste avtale. Dov tretthet er
+            forskjellig fra smerte.
+          </div>
+        </div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Intern rotasjon er det sensitive planet</div>
+          <div class="ex-sub">
+            Unngå: alt bak nakken, bredt-grep stangrows trukket høyt, belastede
+            arm-bak-ryggen-posisjoner. Trygt: nøytralgreprows, face pulls,
+            manualpress (lar skulderen finne sin egen bane).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Belastningslogikk</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Høy-skulder-dager</div>
+          <div class="ex-sub">
+            Torsdag og søndag (buldring). Ingenting legges til utover
+            antagonistfinisheren (10 min push + core). Buldring gir nok
+            pull-stimulus — styrkedagene legger til det buldring ikke gir.
+          </div>
+        </div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Styrkedagene fyller det buldring mangler</div>
+          <div class="ex-sub">
+            Buldring trener: pull, grep, spenning i core, benawareness. Det
+            trener ikke: tungt hinging, tung knebøy, horisontal push, isolert
+            eksternrotasjon. Gymøktene fyller nøyaktig disse hullene.
+          </div>
+        </div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Underkropp er uten begrensning</div>
+          <div class="ex-sub">
+            Skulderinfeksjonen begrenser ikke knebøy- eller markløftfremgang
+            (med mindre stangposisjon gir ubehag — frontknebøy er backupen).
+            Bruk dette: underkropp kan trenes hardt mens skulderen fortsatt
+            restituerer.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Hundeuke-logistikk</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Kontorgym-besøk i hundeuker: man + fre obligatorisk, tir valgfritt,
+            ons kabelmaskin ideelt
+          </div>
+          <div class="ex-sub">
+            Mandag og fredag er de to øktene som krever kabelmaskin for rehab —
+            disse har ikke et hjemme-alternativ på ditt nåværende stadium.
+            Tirsdags underkropp kan gjøres hjemme med manualer i hundeuker.
+            Onsdagens kabel-rehab kan bruke elastisk bånd hjemme som backup.
+          </div>
+        </div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Maks hunde-alene-tid per besøk: ~60 min</div>
+          <div class="ex-sub">
+            Man: 60 min (rehab + markløft + tillegg). Fre: 60 min (rehab +
+            knebøy + press). Tir: 40 min hvis du reiser inn, eller hjemme.
+            Totalt kontorgym-besøk i hundeuke: 2–3 per uke, ingen lenger enn 60
+            min.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">Langsiktig perspektiv</div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">
+            Dette programmet tjener lang levetid, ikke prestasjonsmaksimering
+          </div>
+          <div class="ex-sub">
+            Styrketargetene (1,5×KV knebøy, 2×KV markløft) er markører for
+            funksjonell muskelmasse og bevegelseskvalitet assosiert med
+            langsiktige helseresultater — ikke styrkeløftningsmål.
+            Tidshorisonten er 12–18 måneder, ikke 12 uker.
+          </div>
+        </div>
+      </div>
+      <div class="exercise">
+        <div>
+          <div class="ex-name">Buldring er sporten — gymet tjener sporten</div>
+          <div class="ex-sub">
+            Hvis en gymøkt kompromitterer kvaliteten på torsdag- eller
+            søndagsbuldring (gjennom tretthet), var gymøkten for hard. Buldring
+            gir den sosiale forbindelsen, flytsonen og bevegelsesglede. Gymet
+            gir den strukturelle støtten.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showDay(id, tab) {
+    document
+      .querySelectorAll(".day-card")
+      .forEach((c) => c.classList.remove("show"));
+    document
+      .querySelectorAll(".dtab")
+      .forEach((t) => t.classList.remove("active"));
+    document.getElementById(id).classList.add("show");
+    tab.classList.add("active");
+  }
+</script>
