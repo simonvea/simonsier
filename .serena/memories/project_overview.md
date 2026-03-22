@@ -11,7 +11,7 @@
 - **JS Processing:** Terser (minification), esbuild (JSX compilation)
 - **HTML:** html-minifier in production
 - **Markdown:** markdown-it with plugins (anchor, TOC, modify-token)
-- **Plugins:** eleventy-navigation, eleventy-plugin-rss, eleventy-plugin-syntaxhighlight, eleventy-plugin-webc
+- **Plugins:** eleventy-navigation, eleventy-plugin-rss (v3, ESM — loaded via `await import()` in `.eleventy.js`), eleventy-plugin-syntaxhighlight
 - **Language:** TypeScript (per Serena config), Norwegian content
 
 ## Directory Structure

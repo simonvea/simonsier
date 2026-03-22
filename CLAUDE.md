@@ -10,16 +10,15 @@ This is a personal blog website built with Eleventy (11ty) static site generator
 
 ### Development
 - `npm run serve` - Start development server with hot reload
-- `npm run build` - Build for production (sets ELEVENTY_PRODUCTION=true)
+- `npm run build` - Build site to `_site/`
+- `npm run build:prod` - Build for production (sets ELEVENTY_PRODUCTION=true, enables HTML minification)
 - `npm run debug` - Run with debug output enabled
 - `npm run cms` - Start Decap CMS server (currently not in use)
 
 ### Deployment
-The site is deployed via AWS CodeBuild using `buildspec.yml`. The build process:
-1. Runs `npm install`
-2. Runs `npm run build`
-3. Invalidates CloudFront distribution
-4. Serves files from `_site` directory
+The site is deployed via GitHub Actions (`.github/workflows/deploy.yml`) on push to `main`. The build process:
+1. Runs `npm ci && npm run build`
+2. Rsyncs `_site/` to a VPS over SSH using `secrets.VPS_SSH_KEY`, `secrets.VPS_USER`, `secrets.VPS_HOST`
 
 ## Architecture
 
@@ -59,10 +58,10 @@ The site is deployed via AWS CodeBuild using `buildspec.yml`. The build process:
 ### Key Features
 - Navigation plugin for site navigation
 - Syntax highlighting for code blocks
-- RSS feed support
-- Responsive design
+- RSS feed support (plugin v3, loaded via async `import()` in `.eleventy.js`)
+- Responsive design with dark theme
 - Font optimization (Lora font family)
-- No current PWA implementation (commented out)
+- HTML minification via `html-minifier-terser` (production only)
 
 ## Norwegian Content
 The blog is written in Norwegian, so content changes should maintain Norwegian language and cultural context.
