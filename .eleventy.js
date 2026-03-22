@@ -6,12 +6,12 @@ const markdownIt = require('markdown-it');
 const markdownItModifyToken = require('markdown-it-modify-token');
 const markdownItTOC = require('markdown-it-table-of-contents');
 const markdownItAnchor = require('markdown-it-anchor');
-const htmlmin = require('html-minifier');
-const pluginRss = require('@11ty/eleventy-plugin-rss');
+const { minify: htmlmin } = require('html-minifier-terser');
 const esbuild = require('esbuild');
-// const pluginPWA = require("eleventy-plugin-pwa"); currently not needed
 
-module.exports = function (eleventyConfig) {
+module.exports = async function (eleventyConfig) {
+  const { default: pluginRss } = await import('@11ty/eleventy-plugin-rss');
+
   // add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -81,18 +81,17 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary('md', markdownLibrary);
 
-  eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+  eleventyConfig.addTransform('htmlmin', async function (content, outputPath) {
     if (
       process.env.ELEVENTY_PRODUCTION &&
       outputPath &&
       outputPath.endsWith('.html')
     ) {
-      let minified = htmlmin.minify(content, {
+      return await htmlmin(content, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
       });
-      return minified;
     }
 
     return content;
