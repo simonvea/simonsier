@@ -37,4 +37,4 @@ Jeg skal skrive om hvert av disse. Ikke som råd til andre, men som logg over hv
 
 En ting jeg ikke trenger å eksperimentere meg frem til: hunden gjør en målbar forskjell. Humøret mitt tracker hundesyklusen (tre uker på, tre uker av) ganske bra. Hundeuker er bedre. Strukturen, bevegelsen, den sosiale kontakten det åpner for.
 
-Det er ikke at hunden er svaret. Det er at hunden avslører hva systemet ellers mangler.
+Det er ikke at hunden er svaret. Det er at hunden avslører hva livet ellers mangler.
